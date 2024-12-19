@@ -1,9 +1,12 @@
 import "./App.css";
+import Discovery from "./components/Discovery/Discovery";
+import PreHeader from "./components/PreHeader/PreHeader";
 
 function App() {
   return (
     <>
-      <h1>pouet</h1>
+      <PreHeader />
+      <Discovery />
     </>
   );
 }
