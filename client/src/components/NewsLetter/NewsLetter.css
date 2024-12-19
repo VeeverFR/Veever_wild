@@ -1,0 +1,54 @@
+@import url("@src/variables.css");
+.newsLetter-container {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ), url(./src/assets/images/BackGroundNewsLetter.png);
+  border: 0px solid black;
+  box-shadow: var(--box-shadow-soft);
+  border-radius: var(--border-ref);
+  padding: var(--spacing-ref);
+  justify-items: center;
+  justify-self: center;
+  width: 80%;
+}
+
+.newsLetter-container h3 {
+  text-align: center;
+  padding: var(--spacing-ref);
+}
+
+.newsLetter-container form {
+  text-align: center;
+  padding: var(--spacing-ref);
+}
+
+.offerNewsLetter {
+  text-align: center;
+  border: 0px solid black;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow-soft);
+  background-color: var(--bckgColor);
+  padding: var(--spacing-ref);
+  margin: var(--spacing-ref);
+}
+
+#newsLetterEmail {
+  border-radius: var(--border-ref);
+  border: 0px solid;
+  box-shadow: var(--box-shadow-soft);
+  height: 2rem;
+  width: 100%;
+}
+
+.newsLetter-btn {
+  display: flex;
+  align-items: center;
+  background-color: var(--mainColor);
+  color: var(--light);
+  padding: var(--spacing-ref);
+  height: 2.5rem;
+  border-radius: var(--border-ref);
+  border: 0px solid;
+  cursor: pointer;
+}
