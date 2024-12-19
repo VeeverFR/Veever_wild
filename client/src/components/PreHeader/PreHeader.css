@@ -1,0 +1,25 @@
+.preheader-section {
+  display: flex;
+  justify-content: space-between;
+}
+.city-select {
+  margin: 1rem;
+  height: 3rem;
+  width: 10rem;
+  border: 2px solid pink;
+  border-radius: 2rem;
+  padding: 0 1rem;
+  background-color: transparent;
+  color: grey;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  appearance: none;
+}
+option {
+  cursor: pointer;
+}
+.logo {
+  height: 6rem;
+  width: 6rem;
+}
