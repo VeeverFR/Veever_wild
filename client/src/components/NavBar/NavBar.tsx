@@ -7,7 +7,10 @@ export default function NavBar() {
       <nav>
         <ul>
           <li>
-            <NavLink to="/">
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
@@ -22,7 +25,10 @@ export default function NavBar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/search">
+            <NavLink
+              to="/search"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
@@ -37,7 +43,10 @@ export default function NavBar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/favorites">
+            <NavLink
+              to="/favorites"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
@@ -52,7 +61,10 @@ export default function NavBar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/profile">
+            <NavLink
+              to="/profile"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
@@ -67,7 +79,10 @@ export default function NavBar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/settings">
+            <NavLink
+              to="/settings"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"

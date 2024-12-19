@@ -1,3 +1,13 @@
+import Discovery from "../../components/Discovery/Discovery";
+import NewsLetter from "../../components/NewsLetter/NewsLetter";
+import PreHeader from "../../components/PreHeader/PreHeader";
+
 export default function HomePage() {
-  return <h2>Home Page</h2>;
+  return (
+    <>
+      <PreHeader />
+      <Discovery />
+      <NewsLetter />
+    </>
+  );
 }

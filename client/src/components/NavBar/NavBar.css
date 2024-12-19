@@ -1,22 +1,30 @@
 @import url("@src/variables.css");
 
 header {
-  margin: 0 2.5rem;
-  margin-bottom: 1rem;
-  padding: .5rem 0;
-  border: .5px solid var(--dark);
+  width: 100vw;
 
-  width: 75vw;
+  margin-bottom: var(--spacing-ref);
 
   position: fixed;
   bottom: 0;
   left: 0;
 }
 
+nav {
+  width: 85vw;
+
+  padding: var(--spacing-S) 0;
+  margin: auto;
+
+  background-color: var(--light);
+  border-radius: var(--border-ref);
+  box-shadow: var(--box-shadow-soft);
+}
+
 nav ul {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 nav ul li {
@@ -24,6 +32,9 @@ nav ul li {
 }
 
 nav ul li a {
-  text-decoration: none;
-  color: var(--black);
+  color: var(--secondColor);
+}
+
+.active {
+  color: var(--mainColor);
 }
