@@ -3,6 +3,8 @@
 .itineraries-section {
   display: flex;
   flex-direction: column;
+  margin: 1rem;
+  border-radius: var(--border-ref);
 }
 
 .card {
@@ -20,6 +22,7 @@
 .cards-container {
   display: flex;
   flex-direction: column;
+  background-color: var(--bckgColor);
   gap: 1rem;
 }
 
@@ -27,13 +30,19 @@
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0.5rem 0;
+  text-align: center;
 }
 
 .reserve-button {
-  padding: 0.15rem 0.25rem;
-  color: var(--secondColor);
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  background-color: var(--mainColor);
+  color: var(--light);
+  padding: var(--spacing-ref);
+  margin: 0 auto;
+  height: 2.5rem;
+  border-radius: var(--border-ref);
+  border: 0px solid;
   cursor: pointer;
-  border-radius: 0.25rem;
-  width: auto;
-  align-self: flex-start;
 }
