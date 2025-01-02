@@ -13,7 +13,8 @@ export default function useNewsLetterService({
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (email === "" || !/\S+@\S+\.\S+/.test(email)) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email === "" || emailRegex.test(email)) {
       setIsEmailValid(false);
     } else {
       setIsEmailValid(true);
