@@ -11,18 +11,23 @@
   display: flex;
   flex-direction: column;
   width: auto;
+  border-radius: var(--border-ref);
+  box-shadow: var(--box-shadow-soft);
+  background-color: var(--bckgColor);
+  padding-bottom: .5rem;
+  border: 1px solid grey;
 }
 
 .card_image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: var(--border-ref) var(--border-ref) 0 0;
 }
 
 .cards-container {
   display: flex;
   flex-direction: column;
-  background-color: var(--bckgColor);
   gap: 1rem;
 }
 
