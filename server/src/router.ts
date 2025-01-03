@@ -18,6 +18,6 @@ router.get("/api/restaurants", restaurantActions.browse);
 router.get("/api/restaurants/:id", restaurantActions.read);
 router.put("/api/restaurants", restaurantActions.edit);
 router.post("api/restaurants", restaurantActions.add);
-router.delete("/api/restaurants", restaurantActions.deleteRestaurant);
+router.delete("/api/restaurants", restaurantActions.destroy);
 /* ************************************************************************* */
 export default router;

@@ -58,7 +58,7 @@ const edit: RequestHandler = async (req, res, next) => {
   }
 };
 
-const deleteRestaurant: RequestHandler = async (req, res, next) => {
+const destroy: RequestHandler = async (req, res, next) => {
   try {
     const restaurantId = Number(req.params.id);
 
@@ -93,4 +93,4 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add, edit, deleteRestaurant };
+export default { browse, read, add, edit, destroy };
