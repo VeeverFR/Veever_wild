@@ -10,17 +10,37 @@ type Restaurant = {
 class RestaurantRepository {
   // The C of CRUD - Create operation
 
-  async create(restaurant: Omit<Restaurant, "id">) {
+  async create(
+    restaurant: Omit<Restaurant, "id">,
+    chrData: { address: string; minPrice: number; maxPrice: number },
+  ) {
+    const connection = await databaseClient.getConnection();
     // Execute the SQL INSERT query to add a new restaurant to the "restaurant" table
-    const [result] = await databaseClient.query<Result>(
-      `INSERT 
-       INTO restaurant 
-      (chr_id) values (?)`,
-      [restaurant.chr_id],
-    );
+    try {
+      await connection.beginTransaction();
+      const [chrResult] = await connection.query<Result>(
+        ` INSERT INTO chr
+          (address, min_price, max_price) values (?, ?, ?)`,
+        [chrData.address, chrData.maxPrice, chrData.minPrice],
+      );
 
-    // Return the ID of the newly inserted restaurant
-    return result.insertId;
+      const chrId = chrResult.insertId;
+
+      const [restaurantResult] = await connection.query<Result>(
+        `INSERT INTO restaurant
+         (chr_id) values(?)`,
+        [chrId],
+      );
+
+      await connection.commit();
+      return restaurantResult.insertId;
+    } catch (error) {
+      await connection.rollback();
+      console.error("Erreur lors de la transaction", error);
+      throw error;
+    } finally {
+      connection.release();
+    }
   }
 
   // The Rs of CRUD - Read operations
@@ -30,7 +50,7 @@ class RestaurantRepository {
     const [rows] = await databaseClient.query<Rows>(
       `SELECT *
        FROM restaurant 
-       where id = ?`,
+       WHERE id = ?`,
       [id],
     );
 
@@ -51,14 +71,43 @@ class RestaurantRepository {
 
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing restaurant
-  async update(id: number, editRestaurant: Partial<Omit<Restaurant, "id">>) {
-    const [rows] = await databaseClient.query<Rows>(
-      `UPDATE restaurant
-       SET chr_id = ?
-       WHERE id = ?`,
-      [editRestaurant.chr_id, id],
-    );
-    return rows as Restaurant[];
+  async update(
+    restaurantId: number,
+    chrId: number,
+    chrData: { address: string; minPrice: number; maxPrice: number },
+  ): Promise<{
+    chrId: number;
+    chrData: { address: string; minPrice: number; maxPrice: number };
+  }> {
+    const connection = await databaseClient.getConnection();
+
+    try {
+      await connection.beginTransaction();
+      await connection.query<Result>(
+        `UPDATE chr
+         SET address = ? , minPrice = ? , maxPrice = ?
+         WHERE id = ?`,
+        [chrData.address, chrData.minPrice, chrData.maxPrice, chrId],
+      );
+
+      await connection.query<Result>(
+        `UPDATE restaurant
+         SET chr_id = ?
+         WHERE id = ?`,
+        [chrId, restaurantId],
+      );
+
+      await connection.commit();
+      console.info("Transaction réussie !");
+
+      return { chrId, chrData };
+    } catch (error) {
+      await connection.rollback();
+      console.error("Erreur lors de la transaction: ", error);
+      throw error;
+    } finally {
+      connection.release();
+    }
   }
 
   // The D of CRUD - Delete operation
@@ -66,8 +115,8 @@ class RestaurantRepository {
   async delete(id: number) {
     const [rows] = await databaseClient.query<Rows>(
       `DELETE 
-      FROM restaurant
-      WHERE id = ?`,
+       FROM restaurant
+       WHERE id = ?`,
       [id],
     );
     return rows as Restaurant[];

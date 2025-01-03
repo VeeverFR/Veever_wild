@@ -1,5 +1,6 @@
 import type { RequestHandler } from "express";
 
+import { Connection } from "mysql2/typings/mysql/lib/Connection";
 // Import access to data
 import restaurantRepository from "./restaurantRepository";
 
@@ -43,15 +44,21 @@ const edit: RequestHandler = async (req, res, next) => {
     const editRestaurant = {
       chr_id: Number(req.body.chr_id),
     };
+    const chrData = {
+      address: req.body.address,
+      minPrice: Number(req.body.minPrice),
+      maxPrice: Number(req.body.maxPrice),
+    };
     const updateRestaurant = await restaurantRepository.update(
       restaurantId,
-      editRestaurant,
+      editRestaurant.chr_id,
+      chrData,
     );
 
-    if (updateRestaurant == null) {
-      res.sendStatus(404);
-    } else {
+    if (updateRestaurant) {
       res.json(updateRestaurant);
+    } else {
+      res.sendStatus(404);
     }
   } catch (err) {
     next(err);
@@ -74,21 +81,26 @@ const destroy: RequestHandler = async (req, res, next) => {
   }
 };
 
-// The A of BREAD - Add (Create) operation
 const add: RequestHandler = async (req, res, next) => {
   try {
-    // Extract the restaurant data from the request body
-    const newRestaurant = {
-      chr_id: req.body.chr_id,
+    if (!req.body.address || !req.body.minPrice || !req.body.maxPrice) {
+      res.status(400).json({ error: "Données manquantes ou invalide" });
+      return;
+    }
+
+    const chrData = {
+      address: req.body.address,
+      minPrice: Number(req.body.minPrice),
+      maxPrice: Number(req.body.maxPrice),
     };
 
-    // Create the restaurant
-    const insertId = await restaurantRepository.create(newRestaurant);
+    const insertId = await restaurantRepository.create(
+      { chr_id: req.body.chr_id },
+      chrData,
+    );
 
-    // Respond with HTTP 201 (Created) and the ID of the newly inserted restaurant
     res.status(201).json({ insertId });
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };
