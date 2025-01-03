@@ -1,0 +1,40 @@
+@import url("@src/variables.css");
+
+header {
+  width: 100vw;
+
+  margin-bottom: var(--spacing-ref);
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+nav {
+  width: 85vw;
+
+  padding: var(--spacing-S) 0;
+  margin: auto;
+
+  background-color: var(--light);
+  border-radius: var(--border-ref);
+  box-shadow: var(--box-shadow-soft);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+nav ul li {
+  list-style-type: none;
+}
+
+nav ul li a {
+  color: var(--secondColor);
+}
+
+.active {
+  color: var(--mainColor);
+}
