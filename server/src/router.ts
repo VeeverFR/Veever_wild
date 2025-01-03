@@ -18,7 +18,7 @@ router.get("/api/hotels", hotelsActions.browse);
 router.get("/api/hotels/:id", hotelsActions.read);
 router.put("/api/hotels", hotelsActions.edit);
 router.post("api/hotels", hotelsActions.add);
-router.delete("/api/hotels", hotelsActions.deleteHotel);
+router.delete("/api/hotels", hotelsActions.destroy);
 
 /* ************************************************************************* */
 

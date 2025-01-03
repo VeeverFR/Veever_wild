@@ -9,12 +9,10 @@ type Hotels = {
 
 class HotelsRepository {
   // The C of CRUD - Create operation
-
   async create(hotel: Omit<Hotels, "id">) {
     // Execute the SQL INSERT query to add a new hotel to the "hotel" table
     const [result] = await databaseClient.query<Result>(
-      `INSERT 
-       INTO hotel 
+      `INSERT INTO hotel 
       (chr_id) values (?)`,
       [hotel.chr_id],
     );
@@ -24,13 +22,12 @@ class HotelsRepository {
   }
 
   // The Rs of CRUD - Read operations
-
   async read(id: number) {
     // Execute the SQL SELECT query to retrieve a specific hotel by its ID
     const [rows] = await databaseClient.query<Rows>(
       `SELECT *
        FROM hotel 
-       where id = ?`,
+       WHERE id = ?`,
       [id],
     );
 
@@ -49,24 +46,51 @@ class HotelsRepository {
     return rows as Hotels[];
   }
 
-  // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing hotel
-  async update(id: number, editHotels: Partial<Omit<Hotels, "id">>) {
-    const [rows] = await databaseClient.query<Rows>(
-      `UPDATE hotel
-       SET chr_id = ?
-       WHERE id = ?`,
-      [editHotels.chr_id, id],
-    );
-    return rows as Hotels[];
+  // The U of CRUD - Update operation for hotels
+
+  async update(
+    hotelId: number,
+    chrId: number,
+    chrData: { address: string; minPrice: number; maxPrice: number },
+  ): Promise<{
+    chrId: number;
+    chrData: { address: string; minPrice: number; maxPrice: number };
+  }> {
+    const connection = await databaseClient.getConnection();
+
+    try {
+      await connection.beginTransaction();
+      await connection.query(
+        `UPDATE chr
+         SET address = ?, minPrice = ?, maxPrice = ?
+         WHERE id = ?`,
+        [chrData.address, chrData.minPrice, chrData.maxPrice, chrId],
+      );
+
+      await connection.query(
+        `UPDATE hotel
+         SET chr_id = ?
+         WHERE id = ?`,
+        [chrId, hotelId],
+      );
+
+      await connection.commit();
+      console.info("Transaction réussie !");
+
+      return { chrId, chrData };
+    } catch (error) {
+      await connection.rollback();
+      console.error("Erreur lors de la transaction: ", error);
+      throw error;
+    } finally {
+      connection.release();
+    }
   }
 
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an hotel by its ID
   async delete(id: number) {
     const [rows] = await databaseClient.query<Rows>(
-      `DELETE 
-      FROM hotel
+      `DELETE FROM hotel
       WHERE id = ?`,
       [id],
     );

@@ -40,10 +40,14 @@ const read: RequestHandler = async (req, res, next) => {
 const edit: RequestHandler = async (req, res, next) => {
   try {
     const hotelId = Number(req.params.id);
-    const editHotel = {
-      chr_id: Number(req.body.chr_id),
+    const chrId = Number(req.body.chr_id);
+    const chrData = {
+      address: req.body.address,
+      minPrice: req.body.minPrice,
+      maxPrice: req.body.maxPrice,
     };
-    const updateHotel = await hotelRepository.update(hotelId, editHotel);
+
+    const updateHotel = await hotelRepository.update(hotelId, chrId, chrData);
 
     if (updateHotel == null) {
       res.sendStatus(404);
@@ -55,7 +59,7 @@ const edit: RequestHandler = async (req, res, next) => {
   }
 };
 
-const deleteHotel: RequestHandler = async (req, res, next) => {
+const destroy: RequestHandler = async (req, res, next) => {
   try {
     const hotelId = Number(req.params.id);
 
@@ -90,4 +94,4 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add, edit, deleteHotel };
+export default { browse, read, add, edit, destroy };
