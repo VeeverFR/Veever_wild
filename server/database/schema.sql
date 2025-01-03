@@ -4,7 +4,8 @@ CREATE TABLE user (
   password varchar(255) not null,
   firstname varchar(255) not null,
   lastname varchar(255) not null,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP not null,
+  update_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE admin (
@@ -21,10 +22,10 @@ CREATE TABLE gender (
 CREATE TABLE client (
   id int unsigned primary key auto_increment not null,
   user_id int unsigned not null,
-  foreign key(user_id) references user(id),
   birthdate date not null,
   nickname varchar(255) not null,
   gender int unsigned not null,
+  foreign key(user_id) references user(id),
   foreign key(gender_id) references gender(id)
 );
 
@@ -37,12 +38,12 @@ CREATE TABLE phone (
 
 CREATE TABLE reservation (
   id int unsigned primary key auto_increment not null,
-  is_reserved BOOLEAN not null
+  is_reserved BOOLEAN not null default 0
 );
 
 CREATE TABLE reservation_date (
   id int unsigned primary key auto_increment not null,
-  is_confirmed BOOLEAN not null,
+  is_confirmed BOOLEAN not null default 0,
   reservation_id int unsigned not null,
   foreign key(reservation_id) references reservation(id)
 );
@@ -50,8 +51,8 @@ CREATE TABLE reservation_date (
 CREATE TABLE chr (
   id int unsigned primary key auto_increment not null,
   address varchar(255) not null,
-  min_price decimal(10, 2) not null,
-  max_price decimal(10, 2) not null
+  min_price int unsigned not null,
+  max_price int unsigned not null
 );
 
 CREATE TABLE chr_reservation (
@@ -88,16 +89,16 @@ CREATE TABLE keyword (
 CREATE TABLE chr_keyword (
     id int unsigned primary key auto_increment not null,
   chr_id int unsigned not null,
-  foreign key(chr_id) references chr(id),
   keyword_id int unsigned not null,
+  foreign key(chr_id) references chr(id),
   foreign key(keyword_id) references keyword(id)
 );
 
 CREATE TABLE client_keyword (
   id int unsigned primary key auto_increment not null,
   client_id int unsigned not null,
-  foreign key(client_id) references client(id),
   keyword_id int unsigned not null,
+  foreign key(client_id) references client(id),
   foreign key(keyword_id) references keyword(id)
 );
 
@@ -115,9 +116,9 @@ CREATE TABLE question (
 
 CREATE TABLE answer (
   id int unsigned primary key auto_increment not null,
-  is_checked BOOLEAN not null,
+  is_checked BOOLEAN not null default 0,
   question_id int unsigned not null,
-  foreign key(question_id) references question(id),
   keyword_id int unsigned not null,
+  foreign key(question_id) references question(id),
   foreign key(keyword_id) references keyword(id)
 );
