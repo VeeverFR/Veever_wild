@@ -15,7 +15,7 @@
   box-shadow: var(--box-shadow-soft);
   background-color: var(--bckgColor);
   padding-bottom: .5rem;
-  border: 1px solid grey;
+  border: 0.063rem solid grey;
 }
 
 .card_image {

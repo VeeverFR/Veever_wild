@@ -59,4 +59,29 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add };
+const update: RequestHandler = async (req, res, next) => {
+  try {
+    // Extract the client data from the request body
+    const updateClient = {
+      birthdate: req.body.birthdate,
+      nickName: req.body.nickName,
+      gender_Id: req.body.gender,
+      id: +req.params.id,
+    };
+
+    // Update the client
+    const updateId = await clientsRepository.update(updateClient);
+
+    if (updateId) {
+      res.sendStatus(204);
+    } else {
+      res.sendStatus(404);
+    }
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted client
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+export default { browse, read, add, update };

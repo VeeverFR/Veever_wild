@@ -5,17 +5,43 @@ import type { Result, Rows } from "../../../database/client";
 type Client = {
   id: number;
   birthdate: Date;
-    nickName: string;
-    gender_Id: number;
+  nickName: string;
+  gender_Id: number;
   user_id: number;
 };
 
-class ItemRepository {
-  // The C of CRUD - Create operation
+class ClientRepository {
+  async update(updateClient:  Omit<Client, "user_id">): Promise<boolean> {
 
-  async create(client: Omit <Client, "id">) : Promise<number> {
+    const [rows] = await databaseClient.query<Rows>(
+      `
+      SELECT user_id FROM client
+      WHERE id = ?
+      `,
+      [updateClient.id],
+    );
+
+    if (rows.length === 0) {
+      return false;
+    }
+
+const [result] = await databaseClient.query<Result>(
+  `
+    UPDATE clients
+    SET birthdate = ?, nickname = ?, gender_id = ?
+    WHERE id = ?
+    `,
+  [updateClient.birthdate, updateClient.nickName, updateClient.gender_Id, updateClient.id],    
+);
+
+  return result.affectedRows > 0;
+}
+
+
+  async create(client: Omit<Client, "id">): Promise<number> {
     // Execute the SQL INSERT query to add a new client to the "client" table
-    const [result] = await databaseClient.query<Result>(`
+    const [result] = await databaseClient.query<Result>(
+      `
         INSERT INTO clients
             (birthdate, nickname, gender_id, user_id)
         VALUES (?, ?, ?, ?)
@@ -32,7 +58,10 @@ class ItemRepository {
   async read(id: number) {
     // Execute the SQL SELECT query to retrieve a specific client by its ID
     const [rows] = await databaseClient.query<Rows>(
-      "select * from client where id = ?",
+      `
+      SELECT * FROM client 
+      WHERE id = ?
+      `,
       [id],
     );
 
@@ -42,7 +71,7 @@ class ItemRepository {
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "client" table
-    const [rows] = await databaseClient.query<Rows>("select * from client");
+    const [rows] = await databaseClient.query<Rows>(`SELECT * FROM client`);
 
     // Return the array of items
     return rows as Client[];
@@ -50,7 +79,7 @@ class ItemRepository {
 
   // The U of CRUD - Update operation
   // TODO: Implement the update operation to modify an existing client
-
+  
   // async update(client: Client) {
   //   ...
   // }
@@ -63,4 +92,4 @@ class ItemRepository {
   // }
 }
 
-export default new ItemRepository();
+export default new ClientRepository();

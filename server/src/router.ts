@@ -19,7 +19,7 @@ router.get("/api/clients", clientsActions.browse);
 router.get("/api/clients/:id", clientsActions.read);
 router.post("/api/clients", clientsActions.add);
 router.put("/api/clients/:id", clientsActions.update);
-router.delete("/api/clients/:id", clientsActions.delete);
+//router.delete("/api/clients/:id", clientsActions.delete);
 
 /* ************************************************************************* */
 

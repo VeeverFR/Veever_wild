@@ -6,16 +6,16 @@ interface CardProps {
   onReserve: () => void;
 }
 
-const Card = ({ title, imageSrc, onReserve }: CardProps) => {
+const ItineraryCard = ({ title, imageSrc, onReserve }: CardProps) => {
   return (
-    <article className="card">
+    <section className="card">
       <img src={imageSrc} alt={title} className="card_image" />
       <h3 className="card-title">{title}</h3>
       <button type="button" className="reserve-button" onClick={onReserve}>
         Réserver
       </button>
-    </article>
+    </section>
   );
 };
 
-export default Card;
+export default ItineraryCard;

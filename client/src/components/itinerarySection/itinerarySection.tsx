@@ -1,4 +1,4 @@
-import Card from "./itineraryCard/itineraryCard.tsx";
+import ItineraryCard from "./itineraryCard/itineraryCard.tsx";
 
 const itineraries = [
   {
@@ -20,7 +20,7 @@ const itineraries = [
 
 const ItinerarySection = () => {
   const handleReserve = (title: string) => {
-    console.info(`Réservation de l'itinéraire ${title}`);
+    alert(`Réservation de l'itinéraire ${title}`);
   };
 
   return (
@@ -28,7 +28,7 @@ const ItinerarySection = () => {
       <h2 className="section-title">Nos Itinéraires du Moment</h2>
       <article className="cards-container">
         {itineraries.map((item) => (
-          <Card
+          <ItineraryCard
             key={item.id}
             title={item.title}
             imageSrc={item.imageSrc}
