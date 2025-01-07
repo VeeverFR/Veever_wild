@@ -11,8 +11,7 @@ type Client = {
 };
 
 class ClientRepository {
-  async update(updateClient:  Omit<Client, "user_id">): Promise<boolean> {
-
+  async update(updateClient: Omit<Client, "user_id">): Promise<boolean> {
     const [rows] = await databaseClient.query<Rows>(
       `
       SELECT user_id FROM client
@@ -25,18 +24,22 @@ class ClientRepository {
       return false;
     }
 
-const [result] = await databaseClient.query<Result>(
-  `
+    const [result] = await databaseClient.query<Result>(
+      `
     UPDATE clients
     SET birthdate = ?, nickname = ?, gender_id = ?
     WHERE id = ?
     `,
-  [updateClient.birthdate, updateClient.nickName, updateClient.gender_Id, updateClient.id],    
-);
+      [
+        updateClient.birthdate,
+        updateClient.nickName,
+        updateClient.gender_Id,
+        updateClient.id,
+      ],
+    );
 
-  return result.affectedRows > 0;
-}
-
+    return result.affectedRows > 0;
+  }
 
   async create(client: Omit<Client, "id">): Promise<number> {
     // Execute the SQL INSERT query to add a new client to the "client" table
@@ -71,25 +74,23 @@ const [result] = await databaseClient.query<Result>(
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "client" table
-    const [rows] = await databaseClient.query<Rows>(`SELECT * FROM client`);
+    const [rows] = await databaseClient.query<Rows>("SELECT * FROM client");
 
     // Return the array of items
     return rows as Client[];
   }
 
-  // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing client
-  
-  // async update(client: Client) {
-  //   ...
-  // }
-
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an client by its ID
-
-  // async delete(id: number) {
-  //   ...
-  // }
+  async destroy(id: number): Promise<boolean> {
+    const [result] = await databaseClient.query<Result>(
+      `
+      DELETE FROM clients
+      WHERE id = ?
+      `,
+      [id],
+    );
+    return result.affectedRows > 0;
+  }
 }
 
 export default new ClientRepository();

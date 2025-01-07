@@ -84,4 +84,26 @@ const update: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add, update };
+// The D of BREAD - Delete operation
+const destroy: RequestHandler = async (req, res, next) => {
+  try {
+    // Extract the client ID from the request parameters
+    const clientId = Number(req.params.id);
+
+    // Delete the client
+    const destroyed = await clientsRepository.destroy(clientId);
+
+    // If the client was deleted, respond with HTTP 204 (No Content)
+    // Otherwise, respond with HTTP 404 (Not Found)
+    if (destroyed) {
+      res.sendStatus(204);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+export default { browse, read, add, update, destroy };
