@@ -1,9 +1,33 @@
+import { useCallback, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 
 export default function NavBar() {
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const controlHeader = useCallback(() => {
+    if (window.scrollY > lastScrollY) {
+      setShow(false);
+    } else {
+      setShow(true);
+    }
+
+    setLastScrollY(window.scrollY);
+  }, [lastScrollY]);
+
+  useEffect(() => {
+    const handleScroll = () => controlHeader();
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [controlHeader]);
+
   return (
-    <header>
+    <header className={`header ${show ? "header-visible" : "header-hidden"}`}>
       <nav>
         <ul>
           <li>

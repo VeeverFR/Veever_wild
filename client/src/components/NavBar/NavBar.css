@@ -8,6 +8,18 @@ header {
   position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease, bottom 0.3s ease;
+}
+
+.header-visible {
+  bottom: 0;
+  transform: translateX(0);
+}
+
+.header-hidden {
+  bottom: 0;
+  transform: translateX(-100%);
 }
 
 nav {
