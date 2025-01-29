@@ -6,38 +6,26 @@
   align-items: flex-start;
   width: 100%;
   height: 18rem;
-  background-image: url("src/assets/images/Discovery.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 1rem;
+  padding: var(--spacing-ref);
   color: var(--light);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .discovery-section h1 {
   font-family: var(--titleFont);
-  font-size: 1.5rem;
-  padding: 2rem;
+  font-size: calc(var(--spacing-ref) * 1.5);
+  padding: calc(var(--spacing-ref) * 2);
 }
 .discovery-section p {
   font-family: var(--textFont);
-  padding: 0.5rem;
-  font-size: 1.25rem;
+  padding: var(--spacing-S);
+  font-size: calc(var(--spacing-ref) * 1.25);
 }
 
 .discovery-section button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: rgb(240, 126, 147);
+  padding: var(--spacing-S) var(--spacing-ref);
+  font-size: var(--spacing-ref);
   color: var(--light);
   border: none;
-  border-radius: 0.5rem;
+  border-radius: var(--spacing-S);
   width: 10rem;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.discovery-section button:hover {
-  background-color: #ff69b4;
 }

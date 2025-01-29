@@ -1,6 +1,6 @@
 @import url("@src/variables.css");
 
-header {
+.header {
   width: 100vw;
 
   margin-bottom: var(--spacing-ref);

@@ -1,5 +1,14 @@
 import type { CatalogBoxesProps } from "../../../types/Catalog/CatalogTypes";
 import "./Catalog-Boxes.css";
+import { CatalogCheckbox } from "../../../services/Catalog/CatalogCheckbox";
+import type { CheckboxItem } from "../../../types/Catalog/CatalogTypes";
+
+const checkboxItems: CheckboxItem[] = [
+  { id: "all", label: "Tous" },
+  { id: "hotels", label: "Hôtels" },
+  { id: "restaurants", label: "Restaurants" },
+  { id: "activities", label: "Activités" },
+];
 
 export default function CatalogBoxes({
   filters,
@@ -9,39 +18,15 @@ export default function CatalogBoxes({
     <section>
       <h1 className="catalog-title">Mon catalogue personnalisé</h1>
       <form className="catalog-boxes-form" action="">
-        <label className="catalog-boxes">
-          <input
-            type="checkbox"
-            checked={filters.all}
-            onChange={() => onFilterChange("all")}
+        {checkboxItems.map((item) => (
+          <CatalogCheckbox
+            key={item.id}
+            id={`catalog-${item.id}`}
+            label={item.label}
+            checked={filters[item.id]}
+            onChange={() => onFilterChange(item.id)}
           />
-          Tous
-        </label>
-
-        <label className="catalog-boxes">
-          <input
-            type="checkbox"
-            checked={filters.hotels}
-            onChange={() => onFilterChange("hotels")}
-          />
-          Hôtels
-        </label>
-        <label className="catalog-boxes">
-          <input
-            type="checkbox"
-            checked={filters.restaurants}
-            onChange={() => onFilterChange("restaurants")}
-          />
-          Restaurants
-        </label>
-        <label className="catalog-boxes">
-          <input
-            type="checkbox"
-            checked={filters.activities}
-            onChange={() => onFilterChange("activities")}
-          />
-          Activités
-        </label>
+        ))}
       </form>
     </section>
   );

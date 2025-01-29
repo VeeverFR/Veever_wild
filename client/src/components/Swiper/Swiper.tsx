@@ -7,7 +7,7 @@ export default function Swiper() {
   const [cards, setCards] = useState<ChrCardProps[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3310/api/chr")
+    fetch(`${import.meta.env.VITE_API_URL}/chr`)
       .then((res) => res.json())
       .then((data) => setCards(data));
   }, []);

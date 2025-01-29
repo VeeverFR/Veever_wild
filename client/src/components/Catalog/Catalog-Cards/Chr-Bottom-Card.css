@@ -17,34 +17,11 @@
   margin: var(--spacing-ref) 0;
 }
 
-ul {
-  padding: 0;
-}
-
-ul li {
-  list-style-type: none;
-  font-size: calc(var(--spacing-ref) * 1.25);
-  padding: calc(var(--spacing-ref) * 0.5);
-  text-align: left;
-}
-
-h1,
-h2 {
-  text-align: left;
-}
-
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .add-button {
   box-shadow: var(--box-shadow-soft);
 
   border-radius: calc(var(--border-ref) * 1.25);
   display: inline-block;
-  cursor: pointer;
   color: var(--dark);
   font-size: calc(var(--font-size-ref) * 1.25);
   font-weight: bold;

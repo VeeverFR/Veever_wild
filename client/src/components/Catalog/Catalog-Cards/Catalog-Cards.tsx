@@ -6,12 +6,10 @@ import ChrMiddleCard from "./Chr-Middle-Card";
 
 export default function CatalogCards({ saveCards }: CatalogueProps) {
   return (
-    <>
-      <article className="chr-full-card">
-        <ChakraProvider value={system}>
-          <ChrMiddleCard saveCards={saveCards} />
-        </ChakraProvider>
-      </article>
-    </>
+    <article className="chr-full-card">
+      <ChakraProvider value={system}>
+        <ChrMiddleCard saveCards={saveCards} />
+      </ChakraProvider>
+    </article>
   );
 }

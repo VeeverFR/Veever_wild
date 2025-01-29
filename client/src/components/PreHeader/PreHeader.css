@@ -3,23 +3,19 @@
   justify-content: space-between;
 }
 .city-select {
-  margin: 1rem;
-  height: 3rem;
-  width: 10rem;
-  border: 2px solid pink;
-  border-radius: 2rem;
-  padding: 0 1rem;
+  margin: var(--spacing-ref);
+  height: calc(var(--spacing-ref) * 3);
+  width: calc(var(--spacing-ref) * 10);
+  border: 2px solid var(--veever-pink);
+  border-radius: calc(var(--spacing-ref) * 2);
+  padding: 0 var(--spacing-ref);
   background-color: transparent;
-  color: grey;
-  font-size: 1rem;
-  cursor: pointer;
+  font-size: var(--spacing-ref);
   text-align: center;
   appearance: none;
 }
-option {
-  cursor: pointer;
-}
+
 .logo {
-  height: 6rem;
-  width: 6rem;
+  height: calc(var(--spacing-ref) * 6);
+  width: calc(var(--spacing-ref) * 6);
 }

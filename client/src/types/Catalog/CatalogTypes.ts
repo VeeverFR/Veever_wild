@@ -60,3 +60,15 @@ export type SaveCardsContextType = {
 export type CatalogueProps = {
   saveCards: ChrCardProps[];
 };
+
+export type CheckboxItem = {
+  id: "all" | "hotels" | "restaurants" | "activities";
+  label: string;
+};
+
+export type CatalogCheckboxProps = {
+  id: string;
+  label: string;
+  checked: boolean;
+  onChange: () => void;
+};
