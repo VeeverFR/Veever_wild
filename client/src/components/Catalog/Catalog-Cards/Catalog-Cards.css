@@ -1,0 +1,11 @@
+@import url("@src/variables.css");
+.chr-full-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bottomCard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

@@ -1,0 +1,52 @@
+@import url("@src/variables.css");
+
+.header {
+  width: 100vw;
+
+  margin-bottom: var(--spacing-ref);
+  z-index: 100;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease, bottom 0.3s ease;
+}
+
+.header-visible {
+  bottom: 0;
+  transform: translateX(0);
+}
+
+.header-hidden {
+  bottom: 0;
+  transform: translateX(-100%);
+}
+
+nav {
+  width: 85vw;
+
+  padding: var(--spacing-S) 0;
+  margin: auto;
+
+  background-color: var(--light);
+  border-radius: var(--border-ref);
+  box-shadow: var(--box-shadow-soft);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+nav ul li {
+  list-style-type: none;
+}
+
+nav ul li a {
+  color: var(--secondColor);
+}
+
+.active {
+  color: var(--mainColor);
+}

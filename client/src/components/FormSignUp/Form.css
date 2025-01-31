@@ -1,0 +1,128 @@
+@import url("@src/variables.css");
+
+placeholder {
+  letter-spacing: var(--spacing-letter-ref);
+}
+
+.MuiFormLabel-colorPrimary {
+  color: var(--color-label) !important;
+}
+
+.logoForm {
+  height: 8rem;
+  width: 8rem;
+}
+
+.headerForm {
+  text-align: center;
+  padding: var(--spacing-ref);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: calc(var(--spacing-ref) * 0.4);
+}
+
+#demo-radio-buttons-group-label {
+  text-align: center;
+}
+
+.checkLabel {
+  text-align: center;
+  width: var(--width-label-text);
+}
+.createForm {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  gap: var(--spacing-ref);
+}
+
+.createForm input {
+  margin-bottom: calc(var(--spacing-ref) * 0.4);
+}
+
+.createForm label {
+  letter-spacing: var(--spacing-letter-ref);
+}
+
+.checkBox {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-ref);
+  padding: var(--spacing-ref);
+}
+
+.errors {
+  list-style: none;
+  color: var(--errorColor);
+  font-size: calc(var(--font-size-ref) * 0.8);
+}
+
+.error::before {
+  content: "❌";
+}
+
+.react-datepicker__view-calendar-icon input {
+  padding: var(--padding-input) !important;
+  text-align: center;
+}
+
+.MuiInputBase-input.MuiOutlinedInput-input.MuiInputBase-inputAdornedStart {
+  padding: var(--padding-input) !important;
+}
+
+.react-datepicker__input-container input {
+  border-radius: var(--border-ref);
+  width: var(--width-input-form);
+  border: var(--border-input);
+  font-size: calc(var(--font-size-ref) * 0.875);
+  font-weight: var(--font-weight-S);
+  letter-spacing: var(--spacing-letter-ref);
+  line-height: 1.5;
+  padding: var(--padding-input);
+  box-shadow: var(--box-shadow-input);
+}
+
+.react-datepicker__input-container input:focus {
+  border-color: var(--border-color-input-focus);
+  box-shadow: var(--box-shadow-input-focus);
+}
+
+.react-datepicker__input-container input:hover {
+  border-color: var(--border-color-input-focus);
+}
+
+.react-datepicker__month-select,
+.react-datepicker__year-select {
+  border-radius: var(--border-ref);
+  padding: calc(var(--spacing-ref) * 0.2);
+  margin: calc(var(--spacing-ref) * 0.3);
+}
+
+@media screen and (min-width: 900px) {
+  .createForm {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-self: center;
+  }
+  .checkContact {
+    grid-column: span 2;
+  }
+  .btnAcceptForm {
+    grid-column: span 2;
+  }
+
+  .checkCGU {
+    grid-column: span 2;
+  }
+  .MuiInputBase-input.MuiOutlinedInput-input.MuiInputBase-inputAdornedStart {
+    grid-column: span 2;
+  }
+  .phone {
+    grid-column: span 2;
+  }
+}

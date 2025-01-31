@@ -1,0 +1,30 @@
+@import url("@src/variables.css");
+
+.chr-bottom-section {
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--spacing-ref);
+  border: var(--border-input);
+  border-radius: var(--border-ref);
+}
+
+.type-select {
+  width: 100%;
+  font-size: var(--spacing-ref);
+  padding: var(--spacing-ref);
+  cursor: pointer;
+  border-radius: calc(var(--border-ref) * 2);
+  margin: var(--spacing-ref) 0;
+}
+
+.add-button {
+  box-shadow: var(--box-shadow-soft);
+
+  border-radius: calc(var(--border-ref) * 1.25);
+  display: inline-block;
+  color: var(--dark);
+  font-size: calc(var(--font-size-ref) * 1.25);
+  font-weight: bold;
+  padding: calc(var(--spacing-ref) * 0.8) calc(var(--spacing-ref) * 2);
+  text-decoration: none;
+}

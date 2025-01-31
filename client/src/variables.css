@@ -1,0 +1,44 @@
+:root {
+  --titleFont: "MontSerrat";
+  --textFont: "Arial";
+
+  --font-size-ref: 1rem;
+
+  --font-weight-S: 400;
+
+  --bckgColor: lightgrey;
+  --veever-yellow: #ffea00;
+  --veever-pink: #f26497;
+  --veever-blue: #36a1db;
+  --mainColor: tomato;
+  --secondColor: black;
+  --aliceBlueColor: #f0f8ff;
+  --border-color-input-focus: #3399ff;
+  --errorColor: red;
+  --color-input: #1c2025;
+  --color-label: rgba(0, 0, 0, 0.87);
+  --bckgColor-input: #fff;
+  --light: white;
+  --dark: black;
+
+  --border-ref: 8px;
+  --border-XL: calc(var(--border-ref) * 2);
+  --border-input: 1px solid #dae2ed;
+  --border-weight: 1px;
+
+  --spacing-ref: 1rem;
+  --spacing-S: calc(var(--spacing-ref) * 0.5);
+
+  --spacing-letter-ref: 1px;
+
+  --padding-input: 8px 12px;
+  --margin-input-form: 0px 0px 6.4px;
+
+  --box-shadow-input-focus: 0 0 0 3px #80bfff;
+  --box-shadow-input: 0 2px 2px #f3f6f9;
+  --box-shadow-soft: 0px 0px 2px 2px #00000033;
+
+  --width-input-form: 20rem;
+  --width-label-text: 40ch;
+  --height-input-form: 2.5rem;
+}

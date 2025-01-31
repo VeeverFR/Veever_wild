@@ -1,0 +1,49 @@
+@import url("@src/variables.css");
+
+.newsLetter-container {
+  display: grid;
+  box-shadow: var(--box-shadow-soft);
+  border-radius: var(--border-ref);
+  padding: var(--spacing-ref);
+  justify-items: center;
+  justify-self: center;
+  margin: auto;
+  width: 80%;
+}
+
+.newsLetter-container h3 {
+  text-align: center;
+  padding: var(--spacing-ref);
+}
+
+.newsLetter-container form {
+  text-align: center;
+  padding: var(--spacing-ref);
+}
+
+.offerNewsLetter {
+  text-align: center;
+  box-shadow: var(--box-shadow-soft);
+  background-color: var(--bckgColor);
+  padding: var(--spacing-ref);
+  margin: var(--spacing-ref);
+}
+
+#newsLetterEmail {
+  justify-items: center;
+  border-radius: var(--border-ref);
+  box-shadow: var(--box-shadow-soft);
+  width: 100%;
+}
+
+.newsLetter-btn {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  background-color: var(--mainColor);
+  color: var(--light);
+  padding: var(--spacing-ref);
+  margin: var(--spacing-ref);
+  border-radius: var(--border-ref);
+  cursor: pointer;
+}

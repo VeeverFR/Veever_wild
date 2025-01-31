@@ -1,0 +1,21 @@
+.preheader-section {
+  display: flex;
+  justify-content: space-between;
+}
+.city-select {
+  margin: var(--spacing-ref);
+  height: calc(var(--spacing-ref) * 3);
+  width: calc(var(--spacing-ref) * 10);
+  border: 2px solid var(--veever-pink);
+  border-radius: calc(var(--spacing-ref) * 2);
+  padding: 0 var(--spacing-ref);
+  background-color: transparent;
+  font-size: var(--spacing-ref);
+  text-align: center;
+  appearance: none;
+}
+
+.logo {
+  height: calc(var(--spacing-ref) * 6);
+  width: calc(var(--spacing-ref) * 6);
+}

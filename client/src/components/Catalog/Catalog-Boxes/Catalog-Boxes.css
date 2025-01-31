@@ -1,0 +1,42 @@
+@import url("@src/variables.css");
+.catalog-boxes-form {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--border-ref);
+  text-align: center;
+  margin-top: var(--border-ref);
+  max-width: calc(var(--spacing-ref) * 25);
+  padding: calc(var(--spacing-ref) * 2);
+}
+
+.catalog-title {
+  font-family: var(--titleFont);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(var(--font-size-ref) * 2.5);
+  margin-bottom: var(--border-ref);
+}
+
+.catalog-boxes {
+  cursor: pointer;
+  border: solid var(--dark) calc(var(--border-ref) * 0.2);
+  border-radius: calc(var(--border-ref) * 2);
+  display: flex;
+  align-items: center;
+  grid-column: span 1;
+  justify-content: center;
+  padding: var(--spacing-ref);
+  font-size: calc(var(--font-size-ref) * 1.25);
+  background-color: var(--bckgColor);
+  color: var(--dark);
+  box-shadow: var(--box-shadow-input);
+  transition: 0.6s;
+}
+
+input[type="checkbox"] {
+  margin-right: var(--border-ref);
+  cursor: pointer;
+  transform: scale(1.5);
+}

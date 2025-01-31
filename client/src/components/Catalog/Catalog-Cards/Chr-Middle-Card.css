@@ -1,0 +1,24 @@
+@import url("@src/variables.css");
+.article-chr-middle-card {
+  text-align: center;
+}
+
+.card-container {
+  justify-self: center;
+  width: 80%;
+  border-radius: var(--border-ref);
+  margin: var(--padding-input);
+  border: calc(var(--border-weight) * 8) solid;
+}
+
+.card-container-hotels {
+  border-color: var(--veever-yellow);
+}
+
+.card-container-restaurants {
+  border-color: var(--veever-pink);
+}
+
+.card-container-activities {
+  border-color: var(--veever-blue);
+}

@@ -1,0 +1,53 @@
+@import url("@src/variables.css");
+.card-map {
+  display: grid;
+  padding: calc(var(--spacing-ref) * 2);
+  justify-content: center;
+}
+
+.swiper-container {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.swiper-card {
+  border-radius: var(--border-ref);
+  border: calc(var(--border-weight) * 8) solid;
+}
+
+.swiper-card-hotels {
+  border-color: var(--veever-yellow);
+}
+.swiper-card-restaurants {
+  border-color: var(--veever-pink);
+}
+.swiper-card-activities {
+  border-color: var(--veever-blue);
+}
+
+.img-swiper {
+  margin: auto;
+  width: 100%;
+  height: 70vh;
+  cursor: grab;
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.swiper-btn {
+  font-size: calc(var(--font-size-ref) * 1.5);
+  background-color: unset;
+  border: none;
+  cursor: pointer;
+  letter-spacing: var(--spacing-letter-ref);
+}
+
+.info p {
+  padding: var(--spacing-ref);
+}

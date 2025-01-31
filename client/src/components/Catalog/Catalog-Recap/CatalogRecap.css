@@ -1,0 +1,21 @@
+@import url("@src/variables.css");
+.catalog-filter-section {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: var(--border-ref);
+  text-align: center;
+  margin-top: var(--border-ref);
+  max-width: calc(var(--spacing-ref) * 25);
+}
+.emoji {
+  font-size: calc(var(--font-size-ref) * 3);
+}
+.catalog-filter-section h2,
+p {
+  font-size: calc(var(--font-size-ref) * 1.5);
+  font-family: var(--titleFont);
+  margin: var(--spacing-ref);
+  text-align: center;
+}
