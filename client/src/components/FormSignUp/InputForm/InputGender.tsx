@@ -1,7 +1,7 @@
 import { FormControl, FormLabel } from "@mui/material";
 
 import { useEffect, useState } from "react";
-import { StyledSelect } from "../../../services/Form/StyledSelect";
+import { StyledSelect } from "../../../Styles/StyledSelect";
 import type { FormInput } from "../../../types/FormInput/FormInput";
 
 type Gender = {

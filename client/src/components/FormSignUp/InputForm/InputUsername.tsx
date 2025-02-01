@@ -1,8 +1,8 @@
 import { FormControl, FormLabel } from "@mui/material";
-import { StyledInput } from "../../../services/Form/inputStyle";
+import { StyledInput } from "../../../Styles/StyledInput";
 import type { FormInput } from "../../../types/FormInput/FormInput";
 
-export default function inputUsername({ handleChange, value }: FormInput) {
+export default function InputUsername({ handleChange, value }: FormInput) {
   return (
     <FormControl className="formGroup">
       <FormLabel htmlFor="username">Choisissez un nom d'utilisateur</FormLabel>

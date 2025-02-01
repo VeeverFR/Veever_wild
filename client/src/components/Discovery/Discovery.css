@@ -1,5 +1,5 @@
 @import url("@src/variables.css");
-.discovery-section {
+.discovery-hgroup {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -10,18 +10,18 @@
   color: var(--light);
 }
 
-.discovery-section h1 {
+.discovery-hgroup h1 {
   font-family: var(--titleFont);
   font-size: calc(var(--spacing-ref) * 1.5);
   padding: calc(var(--spacing-ref) * 2);
 }
-.discovery-section p {
+.discovery-hgroup p {
   font-family: var(--textFont);
   padding: var(--spacing-S);
   font-size: calc(var(--spacing-ref) * 1.25);
 }
 
-.discovery-section button {
+.discovery-hgroup button {
   padding: var(--spacing-S) var(--spacing-ref);
   font-size: var(--spacing-ref);
   color: var(--light);

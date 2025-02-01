@@ -1,4 +1,4 @@
-import "./FormCreateAcc.css";
+import "./Form.css";
 import "react-datepicker/dist/react-datepicker.css";
 import { Button } from "@mui/material";
 import Snackbar from "@mui/material/Snackbar";
@@ -6,18 +6,18 @@ import { useState } from "react";
 import useFormData from "../../services/Form/FormData";
 import useFormValidation from "../../services/Form/FormValidation";
 import HeaderForm from "./HeaderForm";
-import InputCheckCGU from "./inputForm/InputCheckCGU";
-import InputDate from "./inputForm/InputDate";
-import InputEmail from "./inputForm/InputEmail";
-import InputFirstName from "./inputForm/InputFirstName";
-import InputGender from "./inputForm/InputGender";
-import InputPhone from "./inputForm/InputPhone";
-import InputCheckContact from "./inputForm/inputCheckContact";
-import InputLastName from "./inputForm/inputLastName";
-import InputPassword from "./inputForm/inputPassword";
-import InputUsername from "./inputForm/inputUsername";
+import InputCheckCGU from "./InputForm/InputCheckCGU";
+import InputCheckContact from "./InputForm/InputCheckContact";
+import InputDate from "./InputForm/InputDate";
+import InputEmail from "./InputForm/InputEmail";
+import InputFirstName from "./InputForm/InputFirstName";
+import InputGender from "./InputForm/InputGender";
+import InputLastName from "./InputForm/InputLastName";
+import InputPassword from "./InputForm/InputPassword";
+import InputPhone from "./InputForm/InputPhone";
+import InputUsername from "./InputForm/InputUsername";
 
-export default function FormCreateAcc() {
+export default function FormCreateSignUp() {
   const {
     email,
     password,

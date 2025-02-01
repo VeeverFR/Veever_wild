@@ -42,9 +42,7 @@ export default function NavBar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/search" className={getNavLinkClass}>
-              <SearchIcon />
-            </NavLink>
+            <SearchIcon />
           </li>
           <li>
             <NavLink to="/catalog" className={getNavLinkClass}>
@@ -52,14 +50,10 @@ export default function NavBar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/profile" className={getNavLinkClass}>
-              <ProfileIcon />
-            </NavLink>
+            <ProfileIcon />
           </li>
           <li>
-            <NavLink to="/settings" className={getNavLinkClass}>
-              <ParametreIcon />
-            </NavLink>
+            <ParametreIcon />
           </li>
         </ul>
       </nav>

@@ -15,8 +15,8 @@ class HotelsRepository {
       await connection.beginTransaction();
       const [chrResult] = await connection.query<Result>(
         ` INSERT INTO chr
-          (name, address, min_price, max_price) values (?, ?, ?, ?)`,
-        [chrData.name, chrData.address, chrData.minPrice, chrData.maxPrice],
+          (name, address, type, average_budget values (?, ?, ?, ?)`,
+        [chrData.name, chrData.address, chrData.type, chrData.average_budget],
       );
 
       if (!chrResult.insertId) {
@@ -50,7 +50,7 @@ class HotelsRepository {
   async read(id: number) {
     // Execute the SQL SELECT query to retrieve a specific hotel by its ID
     const [rows] = await databaseClient.query<Rows>(
-      `SELECT chr.name, chr.address, chr.min_price, chr.max_price
+      `SELECT name, address, average_budget, type
        FROM hotel 
        INNER JOIN chr
        ON hotel.chr_id = chr.id
@@ -65,7 +65,7 @@ class HotelsRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all hotels from the "hotel" table
     const [rows] = await databaseClient.query<Rows>(
-      `SELECT chr.name, chr.address, chr.min_price, chr.max_price
+      `SELECT name, address, average_budget, type
        FROM hotel
        INNER JOIN chr
        ON hotel.chr_id = chr.id`,
@@ -81,7 +81,7 @@ class HotelsRepository {
     try {
       const [chrResult] = await databaseClient.query<Result>(
         `UPDATE chr
-         SET name = ?, address = ?, min_price = ?, max_price = ?
+         SET name = ?, address = ?, average_budget = ?, type = ?
          WHERE id = (
           SELECT chr_id
           FROM hotel
@@ -90,8 +90,8 @@ class HotelsRepository {
         [
           chrData.name,
           chrData.address,
-          chrData.minPrice,
-          chrData.maxPrice,
+          chrData.average_budget,
+          chrData.type,
           hotelId,
         ],
       );

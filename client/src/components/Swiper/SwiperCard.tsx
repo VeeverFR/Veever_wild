@@ -23,7 +23,7 @@ export default function Cardz({
   } = useSwiper(cards, setCards, id.toString());
 
   return (
-    <article className="swiper-container" id={`swiper-${id.toString()}`}>
+    <main className="swiper-container" id={`swiper-${id.toString()}`}>
       <article
         className={`swiper-card swiper-card-${cards[currentIndex].type}`}
       >
@@ -36,7 +36,7 @@ export default function Cardz({
           style={{ x, opacity, rotate }}
           onDragEnd={() => handleDragEnd(id)}
         />
-        <aside className="button-container">
+        <footer className="button-container">
           <button
             className="swiper-btn"
             onClick={() => handleDislike(id)}
@@ -52,8 +52,8 @@ export default function Cardz({
             <LikeIcon />
           </button>
           <Link to="/prestataire">+ d'infos</Link>
-        </aside>
+        </footer>
       </article>
-    </article>
+    </main>
   );
 }

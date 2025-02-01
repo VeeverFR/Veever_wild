@@ -1,5 +1,5 @@
 import useFormValidation from "../../services/Form/FormValidation";
-import InputEmail from "../FormCreateAcc/inputForm/InputEmail";
+import InputEmail from "../FormSignUp/InputForm/InputEmail";
 import "./NewsLetter.css";
 
 export default function NewsLetter() {

@@ -16,8 +16,14 @@ class ActivityRepository {
       const [chrResult] = await connection.query<Result>(
         `INSERT 
         INTO chr 
-        (name, address, min_price, max_price) values (?, ?, ?, ?)`,
-        [chrData.name, chrData.address, chrData.minPrice, chrData.maxPrice],
+        (name, address, description, average_budget, duration) values (?, ?, ?, ?,?)`,
+        [
+          chrData.name,
+          chrData.address,
+          chrData.description,
+          chrData.average_budget,
+          chrData.duration,
+        ],
       );
       if (!chrResult || !chrResult.insertId) {
         await connection.rollback();
@@ -49,7 +55,7 @@ class ActivityRepository {
   async read(id: number) {
     // Execute the SQL SELECT query to retrieve a specific activity by its ID
     const [rows] = await databaseClient.query<Rows>(
-      `SELECT chr.name, chr.address, chr.min_price, chr.max_price
+      `SELECT name, address, description, average_budget, duration
        FROM activity
        INNER JOIN chr
        ON activity.chr_id = chr.id
@@ -64,7 +70,7 @@ class ActivityRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all activities from the "activity" table
     const [rows] = await databaseClient.query<Rows>(
-      `SELECT chr.name, chr.address, chr.min_price, chr.max_price
+      `SELECT name, address, description, average_budget, duration
        FROM activity
        INNER JOIN chr
        ON activity.chr_id = chr.id`,
@@ -81,7 +87,7 @@ class ActivityRepository {
     try {
       const [chrResult] = await databaseClient.query<Result>(
         `UPDATE chr
-         SET name = ?, address = ?, min_price = ?, max_price = ?
+         SET name = ?, address = ?, description = ?, average_budget = ?, duration = ?
          WHERE id = (
           SELECT chr_id
           FROM activity
@@ -90,8 +96,9 @@ class ActivityRepository {
         [
           chrData.name,
           chrData.address,
-          chrData.minPrice,
-          chrData.maxPrice,
+          chrData.description,
+          chrData.average_budget,
+          chrData.duration,
           activityId,
         ],
       );

@@ -1,7 +1,7 @@
 import type { NextFunction, Request, Response } from "express";
 
 const validateChr = (req: Request, res: Response, next: NextFunction): void => {
-  const { name, address, minPrice, maxPrice } = req.body;
+  const { name, address, average_budget, description } = req.body;
 
   if (typeof name !== "string" || name.trim() === "") {
     res.status(400).json({
@@ -17,35 +17,35 @@ const validateChr = (req: Request, res: Response, next: NextFunction): void => {
     return;
   }
 
-  const parsedMinPrice = Number(minPrice);
-  const parsedMaxPrice = Number(maxPrice);
-
-  if (Number.isNaN(parsedMinPrice) || Number.isNaN(parsedMaxPrice)) {
+  if (typeof description !== "string" || description.trim() === "") {
     res.status(400).json({
       error:
-        "Les champs 'minPrice' et 'maxPrice' doivent être des nombres valides.",
+        "Le champ 'description' est requis et doit être une chaîne non vide.",
     });
     return;
   }
 
-  if (parsedMinPrice < 0) {
-    res
-      .status(400)
-      .json({ error: "'minPrice' doit être supérieur ou égal à 0." });
+  const parsedAverageBudget = Number(average_budget);
+
+  if (Number.isNaN(parsedAverageBudget) || Number.isNaN(parsedAverageBudget)) {
+    res.status(400).json({
+      error:
+        "Le champ 'average_budget' est requis et doit être un nombre valide.",
+    });
     return;
   }
 
-  if (parsedMaxPrice < parsedMinPrice) {
-    res
-      .status(400)
-      .json({ error: "'maxPrice' doit être supérieur ou égal à 'minPrice'." });
+  if (parsedAverageBudget < 0) {
+    res.status(400).json({
+      error: "Le champ 'average_budget doit être supérieur ou égal à 0.",
+    });
     return;
   }
 
-  req.body.minPrice = parsedMinPrice;
-  req.body.maxPrice = parsedMaxPrice;
+  req.body.average_budget = parsedAverageBudget;
   req.body.name = name.trim();
   req.body.address = address.trim();
+  req.body.description = description.trim();
 
   next();
 };

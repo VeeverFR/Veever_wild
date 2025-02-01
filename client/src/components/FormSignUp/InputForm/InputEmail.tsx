@@ -1,5 +1,5 @@
 import { FormControl, FormLabel } from "@mui/material";
-import { StyledInput } from "../../../services/Form/inputStyle";
+import { StyledInput } from "../../../Styles/StyledInput";
 import type { EmailValidation } from "../../../types/FormValidation/FormValidationCheck";
 
 export default function InputEmail({
