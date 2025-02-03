@@ -1,10 +1,10 @@
 import "./Form.css";
 import "react-datepicker/dist/react-datepicker.css";
-import { Button } from "@mui/material";
 import Snackbar from "@mui/material/Snackbar";
 import { useState } from "react";
 import useFormData from "../../services/Form/FormData";
 import useFormValidation from "../../services/Form/FormValidation";
+import { StyledButton } from "../../services/Form/StyledButton";
 import HeaderForm from "./HeaderForm";
 import InputCheckCGU from "./InputForm/InputCheckCGU";
 import InputCheckContact from "./InputForm/InputCheckContact";
@@ -88,9 +88,13 @@ export default function FormCreateSignUp() {
           handleChange={handleChange("checkCGU")}
           value={formData.checkCGU}
         />
-        <Button className="btnAcceptForm" type="submit" variant="contained">
+        <StyledButton
+          className="btnAcceptForm"
+          type="submit"
+          variant="contained"
+        >
           Crée mon compte
-        </Button>
+        </StyledButton>
         {showSnackbar && (
           <Snackbar
             anchorOrigin={{ vertical: "top", horizontal: "center" }}

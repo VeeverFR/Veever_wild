@@ -13,7 +13,7 @@ export default function InputPassword({
   return (
     <>
       <FormControl className="formGroup" required>
-        <FormLabel htmlFor="password">
+        <FormLabel className="password-label" htmlFor="password">
           Veuillez entrer un mot de passe
         </FormLabel>
         <StyledInput
@@ -38,7 +38,7 @@ export default function InputPassword({
 
       <FormControl className="formGroup" required>
         <FormLabel htmlFor="confirmedPassword">
-          Veuillez confirmer votre mot de passe
+          Confirmez votre mot de passe
         </FormLabel>
         <StyledInput
           value={confirmPassword}
@@ -48,7 +48,7 @@ export default function InputPassword({
           name="confirmedPassword"
           id="confirmedPassword"
         />
-        {!isSamePassword && <p className="errors">Mots de passe différents</p>}
+        {!isSamePassword && <p className="error">Mots de passe différents</p>}
       </FormControl>
     </>
   );

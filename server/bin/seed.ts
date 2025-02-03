@@ -25,9 +25,14 @@ const seed = async () => {
         path.join(fixturesPath, filePath)
       );
 
-      const seeder = new SeederClass() as AbstractSeeder;
-
-      dependencyMap[SeederClass.toString()] = seeder;
+      if (SeederClass && typeof SeederClass === "function") {
+        const seeder = new SeederClass() as AbstractSeeder;
+        dependencyMap[SeederClass.toString()] = seeder;
+      } else {
+        console.error(
+          `Le fichier ${filePath} n'exporte pas une classe valide.`,
+        );
+      }
     }
 
     // Sort seeders according to their dependencies

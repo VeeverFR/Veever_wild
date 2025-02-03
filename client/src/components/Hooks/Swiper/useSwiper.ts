@@ -1,19 +1,15 @@
 import { animate, useMotionValue, useTransform } from "framer-motion";
 import { useState } from "react";
 import { useSaveCards } from "../../../services/saveCardsContext/saveCardsContext";
-import type {
-  ChrCardProps,
-  ChrCardsProps,
-} from "../../../types/Catalog/CatalogTypes";
+import type { ChrCardProps } from "../../../types/Catalog/CatalogTypes";
 
 export default function useSwiper(
   cards: ChrCardProps[],
-  setCards: ChrCardsProps["setCards"],
-  id: string,
+  setCards: (cards: ChrCardProps[]) => void,
+  id: number,
 ) {
   const [, setIsAnimated] = useState(false);
   const { addCard } = useSaveCards();
-
   const x = useMotionValue(0);
   const opacity = useTransform(x, [-150, 0, 150], [0, 1, 0]);
   const rotate = useTransform(x, [-150, 150], [-18, 18]);
@@ -23,9 +19,9 @@ export default function useSwiper(
     if (currentX > 50) {
       const swippedCards = cards.find((card) => card.id === id);
       if (swippedCards) {
+        setCards(cards.filter((card) => card.id !== id));
         addCard(swippedCards);
       }
-      setCards(cards.filter((card) => card.id !== id));
     } else if (currentX < -50) {
       setCards(cards.filter((card) => card.id !== id));
     }
@@ -57,7 +53,6 @@ export default function useSwiper(
       },
     });
   };
-
   const currentIndex = cards.findIndex((card) => card.id === Number(id));
 
   return {

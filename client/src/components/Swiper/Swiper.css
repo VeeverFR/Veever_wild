@@ -1,43 +1,109 @@
 @import url("@src/variables.css");
+
+.swiper-header {
+  margin: var(--spacing-ref);
+  border-radius: calc(var(--border-ref) * 2);
+  box-shadow: var(--box-shadow-soft);
+}
+
+.logo-swiper {
+  width: 30%;
+}
 .card-map {
   display: grid;
-  padding: calc(var(--spacing-ref) * 2);
+  padding: calc(var(--spacing-ref) * 1);
   justify-content: center;
 }
 
 .swiper-container {
+  background-color: var(--bckgSecondColor-opacity);
+  border-radius: calc(var(--border-ref) * 2.5);
+  padding: calc(var(--spacing-ref) * 1.5);
   grid-row: 1;
   grid-column: 1;
 }
 
 .swiper-card {
-  border-radius: var(--border-ref);
-  border: calc(var(--border-weight) * 8) solid;
+  background-color: var(--bckgColor);
+  border: calc(var(--border-weight) * 2) solid;
+  border-radius: calc(var(--border-ref) * 2);
+  border-color: var(--mainColor);
+  padding: var(--spacing-ref);
+  height: 85vh;
 }
 
-.swiper-card-hotels {
-  border-color: var(--veever-yellow);
-}
-.swiper-card-restaurants {
-  border-color: var(--veever-pink);
-}
-.swiper-card-activities {
-  border-color: var(--veever-blue);
+.swiper-card p {
+  text-align: start;
+  font-size: calc(var(--font-size-ref) * 2);
 }
 
 .img-swiper {
-  margin: auto;
   width: 100%;
-  height: 70vh;
+  height: 50vh;
   cursor: grab;
+  border-radius: calc(var(--border-ref) * 1.2);
   &:active {
     cursor: grabbing;
   }
 }
 
+.tag-container,
+.img-swiper {
+  grid-row: 1;
+  grid-column: 1;
+}
+.tag-img-container {
+  display: grid;
+  height: 55vh;
+}
+
+.tag-container {
+  color: var(--aliceBlueColor);
+  display: grid;
+  width: 100%;
+  height: 50vh;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.tag-container p {
+  align-content: center;
+  padding: var(--spacing-ref);
+  height: auto;
+  border-radius: calc(var(--border-ref) * 0.7);
+  font-family: var(--textFont);
+  font-size: calc(var(--font-size-ref) * 0.8);
+  margin-bottom: calc(var(--spacing-ref) * 0.4);
+  background: var(--thirdColor-opacity);
+}
+
+.tag-container p:nth-child(1) {
+  grid-column-start: 1;
+  grid-row-start: 4;
+  align-self: flex-end;
+}
+.tag-container p:nth-child(2) {
+  grid-row-start: 5;
+}
+.tag-container p:nth-child(3) {
+  align-self: flex-end;
+  grid-column-start: 2;
+  grid-row-start: 4;
+  height: calc(var(--spacing-ref) * 3);
+}
+
 .button-container {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+}
+
+.swiper-btn:last-child {
+  grid-column: span 2;
+  background: var(--gradientColor);
+  border-radius: calc(var(--border-ref) * 2);
+  padding: var(--padding-input);
+  font-size: var(--font-size-ref);
 }
 
 .swiper-btn {
@@ -46,6 +112,13 @@
   border: none;
   cursor: pointer;
   letter-spacing: var(--spacing-letter-ref);
+}
+
+.swiper-btn a {
+  text-decoration: none;
+  color: var(--aliceBlueColor);
+  font-size: calc(var(--font-size-ref) * 0.8);
+  font-family: var(--textFont);
 }
 
 .info p {

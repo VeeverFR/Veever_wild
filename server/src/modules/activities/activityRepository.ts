@@ -33,8 +33,8 @@ class ActivityRepository {
       const chrId = chrResult.insertId;
       const [activityResult] = await connection.query<Result>(
         `INSERT INTO activity
-        (chr_id) values (?)`,
-        [chrId],
+        (chr_id, duration) values (?, ?)`,
+        [chrId, chrData.duration],
       );
       if (!activityResult.insertId) {
         await connection.rollback();

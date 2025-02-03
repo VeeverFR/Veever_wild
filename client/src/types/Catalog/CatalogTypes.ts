@@ -23,12 +23,12 @@ export type CatalogRecapProps = {
 export type ChrCardProps = {
   count: number;
   id: number;
-  picture: string;
+  images: { link: string }[];
   name: string;
-  maxPrice: number;
-  minPrice: number;
+  average_budget: number;
   category: string;
   address: string;
+  keywords: string[];
   type: "hotels" | "restaurants" | "activities";
 };
 
@@ -36,11 +36,11 @@ export type ChrCardsProps = {
   id: number;
   name: string;
   type: string;
-  maxPrice: number;
-  minPrice: number;
+  average_budget: number;
   address: string;
-  picture: string;
+  images: { link: string }[];
   category: string;
+  keywords: string[];
   cards: ChrCardProps[];
   setCards: (cards: ChrCardProps[]) => void;
 };
@@ -51,7 +51,6 @@ export type Props = {
 
 export type SaveCardsContextType = {
   saveCards: ChrCardProps[];
-  setSaveCards: React.Dispatch<React.SetStateAction<ChrCardProps[]>>;
   addCard: (card: ChrCardProps) => void;
   removeCard: (cardId: number) => void;
   isCardSaved: (cardId: number) => boolean;

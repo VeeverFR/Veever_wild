@@ -45,8 +45,9 @@ const edit: RequestHandler = async (req, res, next) => {
       chrData: {
         name: req.body.name,
         address: req.body.address,
-        type: req.body.type,
+        description: req.body.description,
         average_budget: req.body.average_budget,
+        type: req.body.type,
       },
     };
 
@@ -82,8 +83,9 @@ const add: RequestHandler = async (req, res, next) => {
   const newHotel = {
     name: req.body.name,
     address: req.body.address,
-    type: req.body.type,
+    description: req.body.description,
     average_budget: req.body.average_budget,
+    type: req.body.type,
   };
   try {
     const insertId = await hotelRepository.create(newHotel);
