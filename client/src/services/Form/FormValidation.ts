@@ -1,4 +1,5 @@
 import { useCallback, useState } from "react";
+import type { FormDataContact } from "../../types/FormData/FormData";
 import type { passwordCheck } from "../../types/FormValidation/PasswordCheck";
 
 export default function useFormValidation() {
@@ -7,7 +8,6 @@ export default function useFormValidation() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
   const [isSamePassword, setIsSamePassword] = useState(true);
-
   const validatePassword = useCallback((password: string) => {
     const newErrors: passwordCheck = {};
 
@@ -57,6 +57,16 @@ export default function useFormValidation() {
     handleEmailChange(e.target.value);
   };
 
+  const validateContact = (formData: FormDataContact) => {
+    if (formData.checkContact === "email" && validateEmail(email)) {
+      return "Veuillez entrez votre adresse e-mail";
+    }
+    if (formData.checkContact === "tel" && !formData.phone) {
+      return "Veuillez entrez votre numéro de téléphone";
+    }
+    return null;
+  };
+
   return {
     email,
     password,
@@ -66,5 +76,6 @@ export default function useFormValidation() {
     handlePasswordChange,
     handleConfirmPasswordChange,
     handleEmailCheckChange,
+    validateContact,
   };
 }

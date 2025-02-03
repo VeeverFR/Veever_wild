@@ -1,10 +1,10 @@
 import "./Form.css";
 import "react-datepicker/dist/react-datepicker.css";
-import { Button } from "@mui/material";
 import Snackbar from "@mui/material/Snackbar";
 import { useState } from "react";
 import useFormData from "../../services/Form/FormData";
 import useFormValidation from "../../services/Form/FormValidation";
+import { StyledButton } from "../../services/Form/StyledButton";
 import HeaderForm from "./HeaderForm";
 import InputCheckCGU from "./InputForm/InputCheckCGU";
 import InputCheckContact from "./InputForm/InputCheckContact";
@@ -27,9 +27,12 @@ export default function FormCreateSignUp() {
     handlePasswordChange,
     handleConfirmPasswordChange,
     handleEmailCheckChange,
+    validateContact,
   } = useFormValidation();
   const { handleChange, formData } = useFormData();
   const [showSnackbar, setShowSnackbar] = useState(false);
+  const [contactErrors, setContactErrors] = useState<string | null>(null);
+
   const handleClose = () => {
     setShowSnackbar(false);
   };
@@ -38,6 +41,10 @@ export default function FormCreateSignUp() {
     e.preventDefault();
     if (Object.keys(errors).length > 0 || !isSamePassword) {
       setShowSnackbar(true);
+    }
+    const contactError = validateContact(formData);
+    if (contactError) {
+      setContactErrors(contactError);
       return;
     }
   };
@@ -84,20 +91,26 @@ export default function FormCreateSignUp() {
           handleChange={handleChange("checkContact")}
           value={formData.checkContact}
         />
+        {contactErrors && <p style={{ color: "red" }}>{contactErrors}</p>}
         <InputCheckCGU
           handleChange={handleChange("checkCGU")}
           value={formData.checkCGU}
         />
-        <Button className="btnAcceptForm" type="submit" variant="contained">
+        <StyledButton
+          className="btnAcceptForm"
+          type="submit"
+          variant="contained"
+        >
           Crée mon compte
-        </Button>
+        </StyledButton>
+
         {showSnackbar && (
           <Snackbar
             anchorOrigin={{ vertical: "top", horizontal: "center" }}
-            open={showSnackbar}
+            open={true}
             onClose={handleClose}
             transitionDuration={700}
-            message="Vous avez oublié quelques chose.."
+            message={contactErrors}
           />
         )}
       </form>

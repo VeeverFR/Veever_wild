@@ -12,7 +12,7 @@ export default function InputCheckCGU({ handleChange, value }: FormInput) {
     <FormControl className="formGroup checkCGU">
       <FormLabel className="checkLabel">
         Merci de bien vouloir lire les
-        <Link to="/cgu-veever">conditions général d'utilisation</Link>
+        <Link to="/cgu-veever"> conditions général d'utilisation</Link>
       </FormLabel>
       <FormControlLabel
         className="checkBox"

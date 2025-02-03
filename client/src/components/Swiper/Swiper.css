@@ -11,21 +11,23 @@
 }
 
 .swiper-card {
-  border-radius: var(--border-ref);
-  border: calc(var(--border-weight) * 8) solid;
+  position: relative;
+  border-radius: calc(var(--border-ref) * 4);
+  isolation: isolate;
 }
 
-.swiper-card-hotels {
-  border-color: var(--veever-yellow);
-}
-.swiper-card-restaurants {
-  border-color: var(--veever-pink);
-}
-.swiper-card-activities {
-  border-color: var(--veever-blue);
+.swiper-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: calc(var(--border-weight) * 2);
+  background: var(--gradientColor-CTA);
+  border-radius: calc(var(--border-ref) * 2);
 }
 
 .img-swiper {
+  padding: calc(var(--spacing-ref) * 1);
+  border-radius: calc(var(--border-ref) * 4);
   margin: auto;
   width: 100%;
   height: 70vh;
@@ -46,6 +48,8 @@
   border: none;
   cursor: pointer;
   letter-spacing: var(--spacing-letter-ref);
+  color: var(--mainColor);
+  font-family: var(--textFont);
 }
 
 .info p {
