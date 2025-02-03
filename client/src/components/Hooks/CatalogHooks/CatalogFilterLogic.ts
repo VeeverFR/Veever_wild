@@ -1,9 +1,9 @@
-import { useSaveCards } from "../../services/saveCardsContext/saveCardsContext";
-import type { RecapChrProps } from "../../types/Catalog/CatalogTypes";
-import useCatalogFilter from "./CatalogBoxesLogic";
+import { useSaveCards } from "../../../services/saveCardsContext/saveCardsContext";
+import type { RecapChrProps } from "../../../types/Catalog/CatalogTypes";
+import useFilters from "./useFilters";
 
 export default function useCatalogLogic() {
-  const { filters, handleFilterChange } = useCatalogFilter();
+  const { filters, handleFilterChange } = useFilters();
   const { saveCards } = useSaveCards();
 
   const filteredCards = saveCards.filter(
@@ -18,17 +18,27 @@ export default function useCatalogLogic() {
   };
 
   const recapData: RecapChrProps[] = [
-    { name: "Offres likées", emoji: "❤️", count: counts.all, type: "all" },
-    { name: "Hôtels", emoji: "🏨", count: counts.hotels, type: "hotels" },
+    {
+      name: "Offres likées",
+      emoji: "/src/assets/images/heart.svg",
+      count: counts.all,
+      type: "all",
+    },
+    {
+      name: "Hôtels",
+      emoji: "/src/assets/images/hotel.svg",
+      count: counts.hotels,
+      type: "hotels",
+    },
     {
       name: "Restaurants",
-      emoji: "🍴",
+      emoji: "/src/assets/images/restaurant.svg",
       count: counts.restaurants,
       type: "restaurants",
     },
     {
       name: "Activités",
-      emoji: "🏃‍♀️",
+      emoji: "/src/assets/images/activity.svg",
       count: counts.activities,
       type: "activities",
     },

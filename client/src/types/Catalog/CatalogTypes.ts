@@ -13,8 +13,9 @@ export type RecapChrProps = {
 };
 
 export type CatalogBoxesProps = {
-  filters: CheckBoxProps;
-  onFilterChange: (filterName: keyof CheckBoxProps) => void;
+  filters: { [K in CheckboxItem["id"]]: boolean };
+  onFilterChange: (id: CheckboxItem["id"]) => void;
+  data: RecapChrProps[];
 };
 
 export type CatalogRecapProps = {
@@ -61,14 +62,16 @@ export type CatalogueProps = {
   saveCards: ChrCardProps[];
 };
 
-export type CheckboxItem = {
+export interface CheckboxItem {
   id: "all" | "hotels" | "restaurants" | "activities";
   label: string;
-};
+  emoji: string;
+}
 
-export type CatalogCheckboxProps = {
+export interface CatalogCheckboxProps {
   id: string;
   label: string;
+  emoji: string;
   checked: boolean;
   onChange: () => void;
-};
+}
