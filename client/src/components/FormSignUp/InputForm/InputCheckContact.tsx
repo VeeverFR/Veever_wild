@@ -22,16 +22,16 @@ export default function InputCheckContact({ handleChange, value }: FormInput) {
       >
         <FormControlLabel
           className="checkBox"
-          id="email"
+          id="emailCheck"
           value="email"
-          control={<Radio id="email" />}
+          control={<Radio id="emailCheck" />}
           label="E-mail"
         />
         <FormControlLabel
           className="checkBox"
           value="tel"
-          id="tel"
-          control={<Radio id="tel" />}
+          id="telCheck"
+          control={<Radio id="telCheck" />}
           label="Téléphone"
         />
       </RadioGroup>

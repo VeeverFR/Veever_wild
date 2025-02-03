@@ -5,9 +5,9 @@ import type { CheckboxItem } from "../../../types/Catalog/CatalogTypes";
 
 const checkboxItems: CheckboxItem[] = [
   { id: "all", label: "Tous" },
-  { id: "hotels", label: "Hôtels" },
-  { id: "restaurants", label: "Restaurants" },
-  { id: "activities", label: "Activités" },
+  { id: "hotel", label: "Hôtels" },
+  { id: "restaurant", label: "Restaurants" },
+  { id: "activity", label: "Activités" },
 ];
 
 export default function CatalogBoxes({

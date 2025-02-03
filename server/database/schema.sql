@@ -155,3 +155,21 @@ CREATE TABLE illustration_chr (
   foreign key(illustration_id) references illustration(id),
   foreign key(chr_id) references chr(id)
 );
+
+-- INSERT INTO illustration (link)
+-- VALUES
+-- ('assets/images/activity-images/SPALesSourcesDeCaudalie1_desktop.webp'),
+-- ('assets/images/activity-images/SPALesSourcesDeCaudalie1_mobile.webp'),
+-- ('assets/images/activity-images/SPALesSourcesDeCaudalie2_desktop.jpg'),
+-- ('assets/images/activity-images/SPALesSourcesDeCaudalie2_mobile.jpg'),
+-- ('assets/images/activity-images/SPALesSourcesDeCaudalie3_desktop.jpg'),
+-- ('assets/images/activity-images/SPALesSourcesDeCaudalie3_mobile.jpg');
+
+-- INSERT INTO illustration_chr (chr_id, illustration_id)
+-- VALUES
+-- (1, 1),
+-- (1, 2),
+-- (1, 3),
+-- (1, 4),
+-- (1, 5),
+-- (1, 6);

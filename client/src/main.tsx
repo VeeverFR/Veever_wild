@@ -9,6 +9,10 @@ import App from "./App";
 import FormCreateSignUp from "./components/FormSignUp/FormCreateSignUp";
 import Catalog from "./pages/Catalog/Catalog";
 import HomePage from "./pages/HomePage/HomePage";
+
+import Swiper from "./components/Swiper/Swiper";
+import VersusPage from "./pages/VersusPage/VersusPage";
+
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
 
@@ -30,6 +34,14 @@ const router = createBrowserRouter([
       {
         path: "/catalog",
         element: <Catalog />,
+      },
+      {
+        path: "/search",
+        element: <Swiper />,
+      },
+      {
+        path: "/settings",
+        element: <VersusPage />,
       },
     ],
   },

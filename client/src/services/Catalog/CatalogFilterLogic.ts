@@ -12,25 +12,25 @@ export default function useCatalogLogic() {
 
   const counts = {
     all: saveCards.length,
-    hotels: saveCards.filter((card) => card.type === "hotels").length,
-    restaurants: saveCards.filter((card) => card.type === "restaurants").length,
-    activities: saveCards.filter((card) => card.type === "activities").length,
+    hotels: saveCards.filter((card) => card.type === "hotel").length,
+    restaurants: saveCards.filter((card) => card.type === "restaurant").length,
+    activities: saveCards.filter((card) => card.type === "activity").length,
   };
 
   const recapData: RecapChrProps[] = [
     { name: "Offres likées", emoji: "❤️", count: counts.all, type: "all" },
-    { name: "Hôtels", emoji: "🏨", count: counts.hotels, type: "hotels" },
+    { name: "Hôtels", emoji: "🏨", count: counts.hotels, type: "hotel" },
     {
       name: "Restaurants",
       emoji: "🍴",
       count: counts.restaurants,
-      type: "restaurants",
+      type: "restaurant",
     },
     {
       name: "Activités",
       emoji: "🏃‍♀️",
       count: counts.activities,
-      type: "activities",
+      type: "activity",
     },
   ];
 

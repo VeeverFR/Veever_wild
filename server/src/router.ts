@@ -64,5 +64,9 @@ router.get("/api/genders/:id", genderActions.read);
 router.put("/api/genders/:id", genderActions.edit);
 router.post("/api/genders", genderActions.add);
 router.delete("/api/genders/:id", genderActions.destroy);
+
+import chrActions from "./modules/chr/chrActions";
+router.get("/api/chr", chrActions.browse);
+router.get("/api/chr/:id", chrActions.read);
 /* ************************************************************************* */
 export default router;
