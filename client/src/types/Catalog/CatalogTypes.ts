@@ -23,10 +23,10 @@ export type CatalogRecapProps = {
 export type ChrCardProps = {
   count: number;
   id: number;
-  picture: string;
+  illustration_link: string;
   name: string;
-  maxPrice: number;
-  minPrice: number;
+  description: string;
+  average_budget: number;
   category: string;
   address: string;
   type: "hotels" | "restaurants" | "activities";
@@ -36,10 +36,10 @@ export type ChrCardsProps = {
   id: number;
   name: string;
   type: string;
-  maxPrice: number;
-  minPrice: number;
+  average_budget: number;
+  description: string;
   address: string;
-  picture: string;
+  illustration_link: string;
   category: string;
   cards: ChrCardProps[];
   setCards: (cards: ChrCardProps[]) => void;

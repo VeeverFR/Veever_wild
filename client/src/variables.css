@@ -29,6 +29,8 @@
   --spacing-ref: 1rem;
   --spacing-S: calc(var(--spacing-ref) * 0.5);
 
+  --font-size-XS: calc(var(--spacing-ref) * 0.8);
+
   --spacing-letter-ref: 1px;
 
   --padding-input: 8px 12px;

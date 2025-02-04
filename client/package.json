@@ -16,14 +16,17 @@
     "@mui/system": "^6.3.1",
     "date-fns": "^4.1.0",
     "framer-motion": "^11.18.2",
+    "joi": "^17.13.3",
+    "js-cookie": "^3.0.5",
+    "jwt-decode": "^4.0.0",
     "mui-tel-input": "^7.0.0",
     "react": "^18.3.1",
     "react-datepicker": "^7.6.0",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.2",
-    "yup": "^1.6.1"
+    "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",

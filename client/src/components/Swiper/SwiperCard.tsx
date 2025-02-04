@@ -7,7 +7,7 @@ import useSwiper from "../Hooks/Swiper/useSwiper";
 
 export default function Cardz({
   id,
-  picture,
+  illustration_link,
   name,
   cards,
   setCards,
@@ -29,7 +29,7 @@ export default function Cardz({
       >
         <motion.img
           className="img-swiper"
-          src={picture}
+          src={illustration_link}
           alt={name}
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}

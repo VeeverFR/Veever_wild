@@ -1,6 +1,7 @@
 import databaseClient from "../../../database/client";
 import type { Result, Rows } from "../../../database/client";
-import type { Admin, User } from "../../types/admin/adminTypes";
+import authServices from "../../services/authServices";
+import type { User } from "../../types/admin/adminTypes";
 
 class adminRepository {
   // The C of CRUD - Create operation
@@ -10,17 +11,14 @@ class adminRepository {
     try {
       await connection.beginTransaction();
 
+      const hashedPassword = await authServices.hashPassword(userData.password);
+
       const [userResult] = await connection.execute<Result>(
         `
         INSERT INTO user (email, password, firstname, lastname)
         VALUES (?, ?, ?, ?)
         `,
-        [
-          userData.email,
-          userData.password,
-          userData.firstname,
-          userData.lastname,
-        ],
+        [userData.email, hashedPassword, userData.firstname, userData.lastname],
       );
 
       const userId = userResult.insertId;
@@ -84,6 +82,8 @@ class adminRepository {
 
   // The U of CRUD - Update operation
   async update(userData: User) {
+    const hashedPassword = await authServices.hashPassword(userData.password);
+
     const [userResult] = await databaseClient.execute<Result>(
       `
         UPDATE user
@@ -92,7 +92,7 @@ class adminRepository {
         `,
       [
         userData.email,
-        userData.password,
+        hashedPassword,
         userData.firstname,
         userData.lastname,
         userData.id,

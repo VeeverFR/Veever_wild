@@ -17,7 +17,7 @@ CREATE TABLE admin (
 
 CREATE TABLE gender (
   id int unsigned primary key auto_increment not null,
-  type  varchar(255) not null
+  type varchar(255) not null
 );
 
 CREATE TABLE client (
