@@ -1,10 +1,15 @@
 export type FormData = {
-  username: string;
+  nickname: string;
   lastname: string;
   firstname: string;
-  gender: string;
-  date: string;
-  phone: string;
+  gender_id: number;
+  birthdate: string;
+  phoneNumber: string;
   checkContact: string;
   checkCGU: string;
+};
+
+export type FormDataContact = {
+  checkContact: string;
+  phone?: string;
 };

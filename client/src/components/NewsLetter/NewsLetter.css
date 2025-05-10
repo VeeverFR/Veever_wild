@@ -2,31 +2,95 @@
 
 .newsLetter-container {
   display: grid;
+  background-color: var(--bckgColorOrangeOpacity);
+  border: 0px solid black;
   box-shadow: var(--box-shadow-soft);
   border-radius: var(--border-ref);
-  padding: var(--spacing-ref);
+  padding: 2rem;
+  justify-items: left;
+  margin: 1rem;
+}
+
+.newsLetter-container h2 {
+  font-family: var(--titleFont);
+  font-size: 2rem;
+  color: var(--mainColor);
+  text-align: left;
+  padding: 1rem 0;
   justify-items: center;
   justify-self: center;
-  margin: auto;
-  width: 80%;
+  width: 100%;
 }
 
 .newsLetter-container h3 {
-  text-align: center;
-  padding: var(--spacing-ref);
+  font-family: var(--textFont);
+  font-weight: 400;
+  color: var(--secondColor);
+  text-align: left;
+  padding: 1rem 0;
 }
 
-.newsLetter-container form {
-  text-align: center;
-  padding: var(--spacing-ref);
+.newsLetter-box {
+  background-color: var(--light);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+}
+
+.newsLetter-box .base-Input-root {
+  width: 100%;
+  margin: auto auto auto 0;
+}
+
+.newsLetter-box p {
+  font-family: var(--textFont);
+  color: var(--secondColor);
+  font-size: 1rem;
+  text-align: left;
+}
+
+.css-1iw3t7y-MuiFormControl-root {
+  margin: 1rem 0 0 0;
+}
+.newsLetter-box .css-nwsdb5-MuiFormLabel-root {
+  font-family: var(--textFont);
+  color: var(--secondColor);
+  font-size: 1rem;
+  text-align: left;
+}
+
+.formGroup {
+  gap: 0;
+}
+
+.MuiFormControl-root {
+  width: 100%;
+  align-content: center;
+}
+
+#email {
+  width: 100%;
+  border: 1px var(--mainColor) solid;
+}
+
+span.material-symbols-outlined {
+  font-size: 1.5rem;
+  color: var(--mainColor);
+  align-items: center;
 }
 
 .offerNewsLetter {
-  text-align: center;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--textFont);
+  color: var(--secondColor);
+  text-align: left;
+  border-radius: 8px;
   box-shadow: var(--box-shadow-soft);
   background-color: var(--bckgColor);
   padding: var(--spacing-ref);
-  margin: var(--spacing-ref);
+  margin: 0.5rem 0;
 }
 
 #newsLetterEmail {
@@ -37,13 +101,13 @@
 }
 
 .newsLetter-btn {
-  display: flex;
-  align-items: center;
-  justify-self: center;
-  background-color: var(--mainColor);
+  width: 100%;
+  font-weight: bold;
+  border: 0px;
+  padding: 1rem;
+  margin: 1rem 0;
+  background-image: var(--veever-gradient);
   color: var(--light);
-  padding: var(--spacing-ref);
-  margin: var(--spacing-ref);
   border-radius: var(--border-ref);
   cursor: pointer;
 }

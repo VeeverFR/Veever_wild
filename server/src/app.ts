@@ -1,5 +1,6 @@
 // Load the express module to create a web application
 
+import cookieParser from "cookie-parser";
 import express from "express";
 
 const app = express();
@@ -22,8 +23,14 @@ app.use(express.json());
 import cors from "cors";
 
 if (process.env.CLIENT_URL != null) {
-  app.use(cors({ origin: [process.env.CLIENT_URL] }));
+  app.use(
+    cors({
+      origin: [process.env.CLIENT_URL],
+      credentials: true,
+    }),
+  );
 }
+app.use(cookieParser());
 
 // If you need to allow extra origins, you can add something like this:
 
@@ -65,7 +72,15 @@ import router from "./router";
 
 // Mount the API router under the "/api" endpoint
 app.use(router);
-
+// app.use(
+//   session({
+//     secret: "ton_secret",
+//     resave: false,
+//     saveUninitialized: false,
+//   }),
+// );
+// app.use(passport.initialize());
+// app.use(passport.session());
 /* ************************************************************************* */
 
 // Production-ready setup: What is it for?
@@ -107,6 +122,8 @@ if (fs.existsSync(clientBuildPath)) {
 // Important: Error-handling middleware should be defined last, after other app.use() and routes calls.
 
 import type { ErrorRequestHandler } from "express";
+import session from "express-session";
+import passport from "passport";
 
 // Define a middleware function to log errors
 const logErrors: ErrorRequestHandler = (err, req, res, next) => {

@@ -1,20 +1,21 @@
 export type CheckBoxProps = {
   all: boolean;
-  hotels: boolean;
-  restaurants: boolean;
-  activities: boolean;
+  hotel: boolean;
+  restaurant: boolean;
+  activity: boolean;
 };
 
 export type RecapChrProps = {
   name: string;
   emoji: string;
   count: number;
-  type: "all" | "hotels" | "restaurants" | "activities";
+  type: "all" | "hotel" | "restaurant" | "activity";
 };
 
 export type CatalogBoxesProps = {
-  filters: CheckBoxProps;
-  onFilterChange: (filterName: keyof CheckBoxProps) => void;
+  filters: { [K in CheckboxItem["id"]]: boolean };
+  onFilterChange: (id: CheckboxItem["id"]) => void;
+  data: RecapChrProps[];
 };
 
 export type CatalogRecapProps = {
@@ -23,26 +24,36 @@ export type CatalogRecapProps = {
 export type ChrCardProps = {
   count: number;
   id: number;
-  picture: string;
+  images: { link: string }[];
   name: string;
-  maxPrice: number;
-  minPrice: number;
+  average_budget: number;
   category: string;
   address: string;
-  type: "hotels" | "restaurants" | "activities";
+  keywords: string[];
+  type: "hotel" | "restaurant" | "activity";
 };
 
 export type ChrCardsProps = {
   id: number;
+  images: { link: string }[];
   name: string;
-  type: string;
-  maxPrice: number;
-  minPrice: number;
+  average_budget: number;
   address: string;
-  picture: string;
   category: string;
+  keywords: string[];
   cards: ChrCardProps[];
+  type: string;
   setCards: (cards: ChrCardProps[]) => void;
+};
+
+export type Card = {
+  count: number;
+  id: number;
+  images: { link: string }[];
+  name: string;
+  average_budget: number;
+  address: string;
+  type: "hotel" | "restaurant" | "activity";
 };
 
 export type Props = {
@@ -51,7 +62,6 @@ export type Props = {
 
 export type SaveCardsContextType = {
   saveCards: ChrCardProps[];
-  setSaveCards: React.Dispatch<React.SetStateAction<ChrCardProps[]>>;
   addCard: (card: ChrCardProps) => void;
   removeCard: (cardId: number) => void;
   isCardSaved: (cardId: number) => boolean;
@@ -62,13 +72,15 @@ export type CatalogueProps = {
 };
 
 export type CheckboxItem = {
-  id: "all" | "hotels" | "restaurants" | "activities";
+  id: "all" | "hotel" | "restaurant" | "activity";
   label: string;
+  emoji: string;
 };
 
-export type CatalogCheckboxProps = {
+export interface CatalogCheckboxProps {
   id: string;
   label: string;
+  emoji: string;
   checked: boolean;
   onChange: () => void;
-};
+}

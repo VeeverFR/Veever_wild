@@ -3,12 +3,12 @@ import type { FormData } from "../../types/FormData/FormData";
 
 export default function useFormData() {
   const [formData, setFormData] = useState<FormData>({
-    username: "",
+    nickname: "",
     lastname: "",
     firstname: "",
-    gender: "",
-    date: "",
-    phone: "",
+    gender_id: 0,
+    birthdate: "",
+    phoneNumber: "",
     checkContact: "",
     checkCGU: "",
   });

@@ -21,7 +21,7 @@ export default function InputDate({ handleChange, value }: FormInput) {
         toggleCalendarOnIconClick
         selected={value ? new Date(value) : new Date(today)}
         onChange={(date: Date | null) =>
-          handleChange(date ? date.toDateString() : "")
+          handleChange(date ? date.toISOString().split("T")[0] : "")
         }
       />
     </FormControl>

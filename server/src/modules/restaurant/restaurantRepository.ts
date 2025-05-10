@@ -23,6 +23,7 @@ class RestaurantRepository {
           chrData.address,
           chrData.description,
           chrData.average_budget,
+
           chrData.type,
         ],
       );
@@ -59,7 +60,7 @@ class RestaurantRepository {
   async read(id: number) {
     // Execute the SQL SELECT query to retrieve a specific restaurant by its ID
     const [rows] = await databaseClient.query<Rows>(
-      `SELECT name, address, description, average_budget, type
+      `SELECT chr.name AS name, chr.address, chr.description, chr.average_budget, restaurant.type
        FROM restaurant 
        INNER JOIN chr
        ON restaurant.chr_id = chr.id
@@ -73,7 +74,7 @@ class RestaurantRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all restaurants from the "restaurant" table
     const [rows] = await databaseClient.query<Rows>(
-      `SELECT name, address, description, average_budget, type 
+      `SELECT chr.name AS name, chr.address, chr.description, chr.average_budget, restaurant.type
        FROM restaurant
        INNER JOIN chr
        ON restaurant.chr_id = chr.id`,
@@ -89,13 +90,14 @@ class RestaurantRepository {
     try {
       const [chrResult] = await databaseClient.query<Result>(
         `UPDATE chr
-         SET name = ?, address = ?, description = ?, average_budget = ?
+         SET name = ?, address = ?, description = ?, average_budget = ?, type = ?
          WHERE id = (SELECT chr_id FROM restaurant WHERE id = ?)`,
         [
           chrData.name,
           chrData.address,
           chrData.description,
           chrData.average_budget,
+          chrData.type,
           restaurantId,
         ],
       );

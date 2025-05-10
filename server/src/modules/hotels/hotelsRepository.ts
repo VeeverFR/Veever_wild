@@ -15,8 +15,13 @@ class HotelsRepository {
       await connection.beginTransaction();
       const [chrResult] = await connection.query<Result>(
         ` INSERT INTO chr
-          (name, address, type, average_budget values (?, ?, ?, ?)`,
-        [chrData.name, chrData.address, chrData.type, chrData.average_budget],
+          (name, address, description, average_budget) values (?, ?, ?, ?)`,
+        [
+          chrData.name,
+          chrData.address,
+          chrData.description,
+          chrData.average_budget,
+        ],
       );
 
       if (!chrResult.insertId) {
@@ -27,8 +32,8 @@ class HotelsRepository {
 
       const [hotelResult] = await connection.query<Result>(
         `INSERT INTO hotel
-         (chr_id) values(?)`,
-        [chrId],
+         (chr_id, type) values(?,?)`,
+        [chrId, chrData.type],
       );
 
       if (!hotelResult.insertId) {
@@ -50,7 +55,7 @@ class HotelsRepository {
   async read(id: number) {
     // Execute the SQL SELECT query to retrieve a specific hotel by its ID
     const [rows] = await databaseClient.query<Rows>(
-      `SELECT name, address, average_budget, type
+      `SELECT chr.name, chr.address, chr.description, chr.average_budget, hotel.type
        FROM hotel 
        INNER JOIN chr
        ON hotel.chr_id = chr.id
@@ -61,11 +66,10 @@ class HotelsRepository {
     // Return the first row of the result, which represents the hotel
     return rows[0] as Hotels;
   }
-
   async readAll() {
     // Execute the SQL SELECT query to retrieve all hotels from the "hotel" table
     const [rows] = await databaseClient.query<Rows>(
-      `SELECT name, address, average_budget, type
+      `SELECT chr.name, chr.address, chr.description, chr.average_budget, hotel.type
        FROM hotel
        INNER JOIN chr
        ON hotel.chr_id = chr.id`,
@@ -81,7 +85,7 @@ class HotelsRepository {
     try {
       const [chrResult] = await databaseClient.query<Result>(
         `UPDATE chr
-         SET name = ?, address = ?, average_budget = ?, type = ?
+         SET name = ?, address = ?, descritpion = ?, average_budget = ?, type = ?
          WHERE id = (
           SELECT chr_id
           FROM hotel
@@ -90,6 +94,7 @@ class HotelsRepository {
         [
           chrData.name,
           chrData.address,
+          chrData.description,
           chrData.average_budget,
           chrData.type,
           hotelId,

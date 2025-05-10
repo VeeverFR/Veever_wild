@@ -41,8 +41,8 @@ const add: RequestHandler = async (req, res, next) => {
     // Extract the client data from the request body
     const newClient = {
       birthdate: req.body.birthdate,
-      nickName: req.body.nickName,
-      gender_Id: req.body.gender,
+      nickname: req.body.nickname,
+      gender_id: req.body.gender_id,
       email: req.body.email,
       password: req.body.password,
       firstname: req.body.firstname,
@@ -65,8 +65,8 @@ const update: RequestHandler = async (req, res, next) => {
     // Extract the client data from the request body
     const updateClient = {
       birthdate: req.body.birthdate,
-      nickName: req.body.nickName,
-      gender_Id: req.body.gender,
+      nickname: req.body.nickname,
+      gender_id: req.body.gender_id,
       id: +req.params.id,
       email: req.body.email,
       password: req.body.password,

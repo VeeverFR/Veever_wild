@@ -1,22 +1,36 @@
+@font-face {
+  font-family: "AcuminProExtraCondensedSemibold";
+  src: url("../public/assets/fonts/AcuminVariableConcept.otf")
+    format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
-  --titleFont: "MontSerrat";
-  --textFont: "Arial";
+  --titleFont: "AcuminProExtraCondensedSemibold";
+  --textFont: "Poppins";
 
   --font-size-ref: 1rem;
 
   --font-weight-S: 400;
 
-  --bckgColor: lightgrey;
-  --veever-yellow: #ffea00;
-  --veever-pink: #f26497;
-  --veever-blue: #36a1db;
-  --mainColor: tomato;
-  --secondColor: black;
-  --aliceBlueColor: #f0f8ff;
-  --border-color-input-focus: #3399ff;
+  --mainColor: #fb793f;
+  --secondColor: #4e4a4a;
+
+  --bckgColor: #f8f9fa;
+  --bckgColorOrange: #ffd6c6;
+  --bckgColorOpacity: #f8f9fa90;
+  --bckgColorOrangeOpacity: #ffd6c690;
+  --veever-light-orange: #f59e3f;
+  --veever-pink: #f74aa1;
+  --veever-gradient: linear-gradient(to right, #f74aa1, #fb793f);
+  --veever-green: #7bb471;
+  --veever-light-green: #eef5ed;
+
   --errorColor: red;
-  --color-input: #1c2025;
   --color-label: rgba(0, 0, 0, 0.87);
+  --errorColor: rgba(255, 0, 0, 0.753);
+  --color-input: #1c2025;
   --bckgColor-input: #fff;
   --light: white;
   --dark: black;
@@ -29,6 +43,8 @@
   --spacing-ref: 1rem;
   --spacing-S: calc(var(--spacing-ref) * 0.5);
 
+  --font-size-XS: calc(var(--spacing-ref) * 0.8);
+
   --spacing-letter-ref: 1px;
 
   --padding-input: 8px 12px;
@@ -36,7 +52,7 @@
 
   --box-shadow-input-focus: 0 0 0 3px #80bfff;
   --box-shadow-input: 0 2px 2px #f3f6f9;
-  --box-shadow-soft: 0px 0px 2px 2px #00000033;
+  --box-shadow-soft: 5px 5px 15px 5px #4e4a4a16;
 
   --width-input-form: 20rem;
   --width-label-text: 40ch;

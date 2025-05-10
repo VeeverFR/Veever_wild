@@ -8,19 +8,32 @@ export default function NewsLetter() {
     <article className="newsLetter-container">
       <h2>Rejoignez l'aventure!</h2>
       <h3>Recevez en avant-première nos meilleurs offres</h3>
-      <p className="offerNewsLetter">Offre Exclusive !</p>
-      <p className="offerNewsLetter">Accès anticipé au nouveauté !</p>
-      <p className="offerNewsLetter">-10% sur votre première réservation !</p>
-      <form>
+      <div className="newsLetter-box">
         <InputEmail
           email={email}
           handleEmailCheckChange={handleEmailCheckChange}
           errors={errors}
         />
         <button className="newsLetter-btn" type="submit">
-          Rejoins l'aventure Veever !
+          Je m'inscris
         </button>
-      </form>
+        <p>
+          <span className="material-symbols-outlined">favorite</span> Offres Vos
+          données sont protégées, désabonnement en 1 seul clic.
+        </p>
+      </div>
+      <p className="offerNewsLetter">
+        <span className="material-symbols-outlined">favorite</span> Offres
+        Exclusives
+      </p>
+      <p className="offerNewsLetter">
+        <span className="material-symbols-outlined">favorite</span> Accès
+        anticipé aux nouveautés
+      </p>
+      <p className="offerNewsLetter">
+        <span className="material-symbols-outlined">favorite</span> -10% sur
+        votre première réservation
+      </p>
     </article>
   );
 }

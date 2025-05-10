@@ -1,8 +1,9 @@
 import "./Form.css";
 import "react-datepicker/dist/react-datepicker.css";
-import { Button } from "@mui/material";
 import Snackbar from "@mui/material/Snackbar";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { StyledButton } from "../../Styles/StyledButton";
 import useFormData from "../../services/Form/FormData";
 import useFormValidation from "../../services/Form/FormValidation";
 import HeaderForm from "./HeaderForm";
@@ -30,16 +31,37 @@ export default function FormCreateSignUp() {
   } = useFormValidation();
   const { handleChange, formData } = useFormData();
   const [showSnackbar, setShowSnackbar] = useState(false);
+  const navigate = useNavigate();
   const handleClose = () => {
     setShowSnackbar(false);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (Object.keys(errors).length > 0 || !isSamePassword) {
       setShowSnackbar(true);
       return;
     }
+    try {
+      const response = await fetch("http://localhost:3310/api/clients", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...formData, email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.info("Compte créé avec succès:", data);
+      } else {
+        console.error("Erreur lors de la création du compte:", data.message);
+      }
+    } catch (error) {
+      console.error("Erreur réseau:", error);
+    }
+    navigate("/login");
   };
 
   return (
@@ -47,8 +69,8 @@ export default function FormCreateSignUp() {
       <HeaderForm />
       <form onSubmit={handleSubmit} className="createForm">
         <InputUsername
-          handleChange={handleChange("username")}
-          value={formData.username}
+          handleChange={handleChange("nickname")}
+          value={formData.nickname}
         />
         <InputLastName
           handleChange={handleChange("lastname")}
@@ -72,32 +94,40 @@ export default function FormCreateSignUp() {
           handleConfirmPasswordChange={handleConfirmPasswordChange}
         />
         <InputGender
-          handleChange={handleChange("gender")}
-          value={formData.gender}
+          handleChange={handleChange("gender_id")}
+          value={formData.gender_id}
         />
-        <InputDate handleChange={handleChange("date")} value={formData.date} />
+        <InputDate
+          handleChange={handleChange("birthdate")}
+          value={formData.birthdate}
+        />
         <InputPhone
-          handleChange={handleChange("phone")}
-          value={formData.phone}
+          handleChange={handleChange("phoneNumber")}
+          value={formData.phoneNumber}
         />
         <InputCheckContact
           handleChange={handleChange("checkContact")}
           value={formData.checkContact}
         />
+
         <InputCheckCGU
           handleChange={handleChange("checkCGU")}
           value={formData.checkCGU}
         />
-        <Button className="btnAcceptForm" type="submit" variant="contained">
+        <StyledButton
+          className="btnAcceptForm"
+          type="submit"
+          variant="contained"
+        >
           Crée mon compte
-        </Button>
+        </StyledButton>
+
         {showSnackbar && (
           <Snackbar
             anchorOrigin={{ vertical: "top", horizontal: "center" }}
-            open={showSnackbar}
+            open={true}
             onClose={handleClose}
             transitionDuration={700}
-            message="Vous avez oublié quelques chose.."
           />
         )}
       </form>

@@ -1,12 +1,18 @@
+@import url("@src/variables.css");
 .preheader-section {
   display: flex;
   justify-content: space-between;
+  background-color: var(--light);
+  border-radius: 15px;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 5px 5px 10px var(--bckgcolor);
 }
 .city-select {
   margin: var(--spacing-ref);
   height: calc(var(--spacing-ref) * 3);
   width: calc(var(--spacing-ref) * 10);
-  border: 2px solid var(--veever-pink);
+  border: 1px solid var(--secondColor);
   border-radius: calc(var(--spacing-ref) * 2);
   padding: 0 var(--spacing-ref);
   background-color: transparent;
@@ -15,7 +21,13 @@
   appearance: none;
 }
 
+.logobox {
+  width: 20%;
+  align-content: center;
+}
+
 .logo {
-  height: calc(var(--spacing-ref) * 6);
-  width: calc(var(--spacing-ref) * 6);
+  /* height: calc(var(--spacing-ref) * 6);
+  width: calc(var(--spacing-ref) * 6); */
+  width: 100%;
 }

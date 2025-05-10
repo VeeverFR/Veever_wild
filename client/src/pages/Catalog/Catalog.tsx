@@ -1,7 +1,6 @@
 import CatalogBoxes from "../../components/Catalog/Catalog-Boxes/Catalog-Boxes";
 import CatalogCards from "../../components/Catalog/Catalog-Cards/Catalog-Cards";
-import CatalogRecap from "../../components/Catalog/Catalog-Recap/CatalogRecap";
-import useCatalogLogic from "../../services/Catalog/CatalogFilterLogic";
+import useCatalogLogic from "../../components/Hooks/CatalogHooks/CatalogFilterLogic";
 
 export default function Catalog() {
   const { filters, handleFilterChange, filteredCards, filteredRecapData } =
@@ -9,8 +8,11 @@ export default function Catalog() {
 
   return (
     <main>
-      <CatalogRecap data={filteredRecapData} />
-      <CatalogBoxes filters={filters} onFilterChange={handleFilterChange} />
+      <CatalogBoxes
+        filters={filters}
+        onFilterChange={handleFilterChange}
+        data={filteredRecapData}
+      />
       <CatalogCards saveCards={filteredCards} />
     </main>
   );

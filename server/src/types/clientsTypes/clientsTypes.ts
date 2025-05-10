@@ -1,11 +1,11 @@
 export type Client = {
-  id: number;
+  id?: number;
   email: string;
   password: string;
   firstname: string;
   lastname: string;
-  birthdate: Date;
-  nickName: string;
-  phoneNumber: number;
-  gender_Id: number;
+  birthdate: string;
+  nickname: string;
+  phoneNumber?: number;
+  gender_id: number;
 };

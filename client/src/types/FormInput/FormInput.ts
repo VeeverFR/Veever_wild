@@ -1,6 +1,6 @@
 export type FormInput = {
   handleChange: (value: string) => void;
-  value: string;
+  value: string | number;
 };
 
 export type FormCheckBox = {

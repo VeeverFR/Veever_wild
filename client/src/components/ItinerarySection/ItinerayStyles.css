@@ -1,0 +1,62 @@
+@import url("@src/variables.css");
+
+.itineraries-section {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1.5rem;
+  background-color: var(--bckgColorOrangeOpacity);
+  border-radius: var(--border-ref);
+}
+
+.section-title {
+  font-family: var(--titleFont);
+  font-size: 2rem;
+  color: var(--secondColor);
+  font-weight: bold;
+  margin: var(--spacing-ref) 0;
+  text-align: center;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  border-radius: var(--border-ref);
+  box-shadow: var(--box-shadow-soft);
+  background-color: var(--bckgColor);
+  border: 0.063rem solid var(--mainColor);
+  padding: 1rem;
+}
+
+.card_image {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-ref);
+}
+
+.card-title {
+  font-family: var(--titleFont);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--secondColor);
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.reserve-button {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  background-image: var(--veever-gradient);
+  color: var(--light);
+  padding: var(--spacing-ref);
+  margin: auto auto auto 0;
+  border-radius: var(--border-ref);
+  border: 0rem solid;
+  cursor: pointer;
+}

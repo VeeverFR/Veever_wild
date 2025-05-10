@@ -3,9 +3,9 @@ import type { CheckBoxProps } from "../../types/Catalog/CatalogTypes";
 
 export default function useCatalogBoxes() {
   const [filters, setFilters] = useState<CheckBoxProps>({
-    restaurants: false,
-    activities: false,
-    hotels: false,
+    restaurant: false,
+    activity: false,
+    hotel: false,
     all: true,
   });
 
@@ -13,9 +13,9 @@ export default function useCatalogBoxes() {
     if (filterName === "all") {
       const newValue = !filters.all;
       setFilters({
-        restaurants: newValue,
-        activities: newValue,
-        hotels: newValue,
+        restaurant: newValue,
+        activity: newValue,
+        hotel: newValue,
         all: newValue,
       });
     } else {
@@ -26,7 +26,7 @@ export default function useCatalogBoxes() {
         };
 
         const allSelected =
-          newFilters.restaurants && newFilters.activities && newFilters.hotels;
+          newFilters.restaurant && newFilters.activity && newFilters.hotel;
 
         return {
           ...newFilters,

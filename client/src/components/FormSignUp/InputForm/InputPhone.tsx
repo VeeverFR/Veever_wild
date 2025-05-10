@@ -12,7 +12,7 @@ export default function InputPhone({ handleChange, value }: FormInput) {
       <StyledTelInput
         required
         id="tel"
-        value={value}
+        value={String(value)}
         onChange={handleChangePhone}
         defaultCountry="FR"
       />

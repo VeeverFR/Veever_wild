@@ -1,31 +1,40 @@
 @import url("@src/variables.css");
-.discovery-hgroup {
+
+.discovery-section {
+  /* background-image: url("public/assets/images/rock-climbing.jpg"); */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.5)),
+    url("public/assets/images/rock-climbing.jpg");
+  background-position: center top;
+  background-size: 100% auto;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  width: 100%;
   height: 18rem;
-  padding: var(--spacing-ref);
+  padding: 2rem;
   color: var(--light);
+  /* text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); */
+  margin: 1rem;
 }
 
-.discovery-hgroup h1 {
+.discovery-section h1 {
   font-family: var(--titleFont);
-  font-size: calc(var(--spacing-ref) * 1.5);
-  padding: calc(var(--spacing-ref) * 2);
+  font-size: calc(var(--spacing-ref) * 2);
 }
-.discovery-hgroup p {
+.discovery-section p {
   font-family: var(--textFont);
-  padding: var(--spacing-S);
-  font-size: calc(var(--spacing-ref) * 1.25);
+  font-size: calc(var(--spacing-ref));
+  margin: 1rem 0;
+  text-align: left;
 }
 
-.discovery-hgroup button {
+.discovery-section button {
   padding: var(--spacing-S) var(--spacing-ref);
   font-size: var(--spacing-ref);
+  background-image: var(--veever-gradient);
   color: var(--light);
   border: none;
   border-radius: var(--spacing-S);
-  width: 10rem;
+  width: auto;
 }
