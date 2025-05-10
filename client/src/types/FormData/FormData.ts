@@ -8,3 +8,8 @@ export type FormData = {
   checkContact: string;
   checkCGU: string;
 };
+
+export type FormDataContact = {
+  checkContact: string;
+  phone?: string;
+};

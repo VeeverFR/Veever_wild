@@ -1,0 +1,28 @@
+.my-itineraries {
+  padding: var(--spacing-ref);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.my-itineraries h1 {
+  font-family: var(--titleFont);
+  color: var(--secondColor);
+  text-align: center;
+  margin-bottom: var(--spacing-ref);
+  font-size: calc(var(--font-size-ref) * 2);
+}
+
+.activity-item.hotel {
+  background-color: var(--veever-yellow);
+  color: var(--secondColor);
+}
+
+.activity-item.restaurant {
+  background-color: var(--veever-pink);
+  color: var(--light);
+}
+
+.activity-item.activity {
+  background-color: var(--veever-blue);
+  color: var(--light);
+}

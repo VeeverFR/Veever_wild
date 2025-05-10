@@ -1,4 +1,5 @@
 import express from "express";
+import databaseClient, { type Result, type Rows } from "../database/client";
 
 const router = express.Router();
 
@@ -8,7 +9,6 @@ const router = express.Router();
 
 // Define item-related routes
 import itemActions from "./modules/item/itemActions";
-
 router.get("/api/items", itemActions.browse);
 router.get("/api/items/:id", itemActions.read);
 router.post("/api/items", itemActions.add);
@@ -64,5 +64,9 @@ router.get("/api/genders/:id", genderActions.read);
 router.put("/api/genders/:id", genderActions.edit);
 router.post("/api/genders", genderActions.add);
 router.delete("/api/genders/:id", genderActions.destroy);
+
+import chrActions from "./modules/chr/chrActions";
+router.get("/api/chr", chrActions.browse);
+router.get("/api/chr/:id", chrActions.read);
 /* ************************************************************************* */
 export default router;

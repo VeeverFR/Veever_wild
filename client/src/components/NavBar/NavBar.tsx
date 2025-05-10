@@ -42,7 +42,9 @@ export default function NavBar() {
             </NavLink>
           </li>
           <li>
-            <SearchIcon />
+            <NavLink to="/search" className={getNavLinkClass}>
+              <SearchIcon />
+            </NavLink>
           </li>
           <li>
             <NavLink to="/catalog" className={getNavLinkClass}>
@@ -50,10 +52,14 @@ export default function NavBar() {
             </NavLink>
           </li>
           <li>
-            <ProfileIcon />
+            <NavLink to="/SavedItinerariesPage" className={getNavLinkClass}>
+              <ProfileIcon />
+            </NavLink>
           </li>
           <li>
-            <ParametreIcon />
+            <NavLink to="/settings" className={getNavLinkClass}>
+              <ParametreIcon />
+            </NavLink>
           </li>
         </ul>
       </nav>

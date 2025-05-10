@@ -1,0 +1,68 @@
+@import url("@src/variables.css");
+
+.stay-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: calc(var(--spacing-ref) * 2);
+}
+.title-calendar {
+  padding: var(--spacing-ref);
+}
+.calendar,
+.group-choice,
+.group-number,
+.results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--spacing-ref);
+  width: 100%;
+  max-width: calc(var(--spacing-ref) * 25);
+}
+
+.error-message {
+  color: var(--errorColor);
+  font-size: var(--font-size-ref);
+  text-align: left;
+}
+
+.checkbox-stay {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: var(--spacing-ref);
+  width: 100%;
+  max-width: calc(var(--spacing-ref) * 25);
+}
+
+.checkbox-stay-input {
+  margin-right: var(--spacing-ref);
+}
+
+.title-checkbox {
+  text-align: left;
+  width: 100%;
+  max-width: calc(var(--spacing-ref) * 25);
+  margin-bottom: calc(var(--spacing-ref) * 0.5);
+}
+
+.stay-label {
+  font-size: var(--font-size-ref);
+  margin-bottom: calc(var(--spacing-ref) * 0.5);
+  text-align: left;
+}
+
+.stay-select,
+.stay-button {
+  padding: calc(var(--spacing-ref) * 0.75);
+  font-size: calc(var(--font-size-ref) * 0.9);
+  width: 100%;
+  max-width: calc(var(--spacing-ref) * 25);
+  text-align: left;
+  cursor: pointer;
+  background-color: var(--bckgColor);
+  border: solid var(--bckgColor);
+  border-radius: var(--border-ref);
+}

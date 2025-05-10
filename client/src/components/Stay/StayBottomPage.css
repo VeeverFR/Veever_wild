@@ -1,0 +1,39 @@
+@import url("@src/variables.css");
+.box-bottom-stay {
+  border: var(--border-input);
+  border-radius: var(--border-ref);
+  padding: var(--spacing-ref);
+  margin: var(--spacing-ref);
+  display: inline-block;
+  width: auto;
+  text-align: center;
+  font-size: var(--font-size-ref);
+  box-shadow: var(--box-shadow-soft);
+  cursor: pointer;
+}
+.other-informations {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-ref);
+  margin: var(--spacing-ref);
+  font-size: var(--font-size-ref);
+}
+.next-button {
+  border: var(--border-input);
+  border-radius: var(--border-ref);
+  padding: var(--spacing-ref);
+  width: 100%;
+  font-size: var(--font-size-ref);
+  box-shadow: var(--box-shadow-soft);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--light);
+  margin: var(--spacing-ref) auto;
+  background: var(--gradientColor-CTA);
+}
+
+.other-informations label {
+  padding: calc(var(--spacing-ref) * 0.5);
+}

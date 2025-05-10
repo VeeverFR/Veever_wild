@@ -10,6 +10,7 @@ export type chrData = {
 export type Restaurant = {
   id: number;
   chr_id: number;
+  type: string;
 };
 
 export type UpdateChrData = {

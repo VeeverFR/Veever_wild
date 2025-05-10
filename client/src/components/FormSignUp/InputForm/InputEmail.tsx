@@ -11,7 +11,6 @@ export default function InputEmail({
     <FormControl className="formGroup">
       <FormLabel htmlFor="email">Votre adresse e-mail</FormLabel>
       <StyledInput
-        required
         value={email}
         onChange={handleEmailCheckChange}
         type="email"

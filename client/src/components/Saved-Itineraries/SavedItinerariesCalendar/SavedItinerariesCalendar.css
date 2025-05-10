@@ -1,0 +1,33 @@
+.itinerary-calendar {
+  background-color: var(--light);
+  border-radius: var(--border-ref);
+  padding: var(--spacing-ref);
+  box-shadow: var(--box-shadow-soft);
+}
+
+.rbc-calendar {
+  font-family: var(--textFont);
+}
+
+.rbc-toolbar button {
+  color: var(--secondColor);
+}
+
+.rbc-toolbar button.rbc-active {
+  background-color: var(--mainColor);
+  color: var(--light);
+}
+
+.rbc-event {
+  background-color: var(--veever-blue);
+  border-radius: var(--border-ref);
+}
+
+.rbc-today {
+  background-color: var(--bckgColorOrangeOpacity);
+}
+
+.rbc-header {
+  padding: var(--spacing-S);
+  color: var(--secondColor);
+}

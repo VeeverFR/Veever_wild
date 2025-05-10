@@ -1,8 +1,18 @@
 import "./Chr-Bottom-Card.css";
+import { useNavigate } from "react-router-dom";
+
 export default function ChrBottomCard() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/stay");
+  };
+
   return (
     <section className="chr-bottom-section">
-      <h2>Standing milieu de gamme</h2>
+      <button className="next-button" type="button" onClick={handleClick}>
+        Suivant
+      </button>
     </section>
   );
 }

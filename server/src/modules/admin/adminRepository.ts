@@ -1,3 +1,4 @@
+import bcrypt from "bcryptjs";
 import databaseClient from "../../../database/client";
 import type { Result, Rows } from "../../../database/client";
 import type { Admin, User } from "../../types/admin/adminTypes";
@@ -15,12 +16,7 @@ class adminRepository {
         INSERT INTO user (email, password, firstname, lastname)
         VALUES (?, ?, ?, ?)
         `,
-        [
-          userData.email,
-          userData.password,
-          userData.firstname,
-          userData.lastname,
-        ],
+        [userData.email, userData.firstname, userData.lastname],
       );
 
       const userId = userResult.insertId;

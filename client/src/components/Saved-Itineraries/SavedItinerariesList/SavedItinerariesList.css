@@ -1,0 +1,64 @@
+.no-itineraries {
+  text-align: center;
+  color: var(--secondColor);
+  margin: var(--spacing-ref);
+}
+
+.itinerary-card {
+  background-color: var(--light);
+  border-radius: var(--border-ref);
+  padding: var(--spacing-ref);
+  box-shadow: var(--box-shadow-soft);
+}
+
+.itinerary-card header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-ref);
+}
+
+.itinerary-card h2 {
+  font-size: calc(var(--font-size-ref) * 1.2);
+  color: var(--secondColor);
+}
+
+.status-badge {
+  padding: var(--spacing-S);
+  border-radius: var(--border-ref);
+  font-size: var(--font-size-XS);
+}
+
+.created {
+  border: 2px solid var(--veever-yellow);
+}
+
+.reserved {
+  border: 2px solid var(--veever-blue);
+}
+
+.completed {
+  border: 2px solid var(--mainColor);
+}
+
+.dates {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-ref) * 0.5);
+  margin-bottom: var(--spacing-ref);
+}
+
+.activities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-ref) * 0.5);
+}
+
+.activity-item {
+  padding: var(--spacing-S);
+  border-radius: var(--border-ref);
+  background-color: var(--bckgColorOrangeOpacity);
+}

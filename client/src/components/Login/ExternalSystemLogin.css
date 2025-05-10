@@ -1,0 +1,25 @@
+@import url("@src/variables.css");
+
+.socialLogin {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: .25rem;
+
+  margin-bottom: 1rem;
+}
+
+.socialLogin li {
+  list-style-type: none;
+}
+
+.socialLogin li button {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-ref);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  height: 3rem;
+  width: 4.5rem;
+}

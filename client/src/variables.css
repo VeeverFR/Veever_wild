@@ -1,22 +1,49 @@
+@font-face {
+  font-family: "Poppins-Light";
+  src: url(./assets/fonts/Poppins/Poppins-Light.ttf);
+}
+
+@font-face {
+  font-family: "Poppins-Medium";
+  src: url(./assets/fonts/Poppins/Poppins-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url(./assets/fonts/Poppins/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Acumin";
+  src: url(./assets/fonts/AcuminProExtraCondensedSemibold/font.woff);
+}
+
 :root {
-  --titleFont: "MontSerrat";
-  --textFont: "Arial";
+  --titleFont: "Acumin";
+  --textFont: "Poppins-Regular";
 
   --font-size-ref: 1rem;
 
   --font-weight-S: 400;
 
-  --bckgColor: lightgrey;
+  --font-size-ref: 1rem;
+
+  --font-weight-S: 400;
+  --bckgColor: #f8f9fa;
+  --mainColor: #fb793f;
+  --secondColor: #4e4a4a;
+  --thirdColor: #f74aa1;
+  --gradientColor-CTA: linear-gradient(to left, #f59e3f 13%, #f74aa1 100%);
+  --bckgColorOrangeOpacity: #ffd6c690;
   --veever-yellow: #ffea00;
+  --shadow: #c8c8c8;
   --veever-pink: #f26497;
   --veever-blue: #36a1db;
-  --mainColor: tomato;
-  --secondColor: black;
   --aliceBlueColor: #f0f8ff;
-  --border-color-input-focus: #3399ff;
   --errorColor: red;
-  --color-input: #1c2025;
   --color-label: rgba(0, 0, 0, 0.87);
+  --border-color-input-focus: #3399ff;
+  --color-input: #1c2025;
   --bckgColor-input: #fff;
   --light: white;
   --dark: black;
@@ -29,6 +56,8 @@
   --spacing-ref: 1rem;
   --spacing-S: calc(var(--spacing-ref) * 0.5);
 
+  --font-size-XS: calc(var(--spacing-ref) * 0.8);
+
   --spacing-letter-ref: 1px;
 
   --padding-input: 8px 12px;
@@ -37,6 +66,10 @@
   --box-shadow-input-focus: 0 0 0 3px #80bfff;
   --box-shadow-input: 0 2px 2px #f3f6f9;
   --box-shadow-soft: 0px 0px 2px 2px #00000033;
+
+  --width-input-form: 20rem;
+  --width-label-text: 40ch;
+  --height-input-form: 2.5rem;
 
   --width-input-form: 20rem;
   --width-label-text: 40ch;

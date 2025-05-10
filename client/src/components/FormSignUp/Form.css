@@ -9,13 +9,21 @@ placeholder {
 }
 
 .logoForm {
-  height: 8rem;
-  width: 8rem;
+  width: 70%;
 }
 
 .headerForm {
   text-align: center;
+  font-family: var(--titleFont);
+  font-size: calc(var(--font-size-ref) * 1.3);
   padding: var(--spacing-ref);
+}
+
+.headerForm h1 {
+  text-align: center;
+  color: var(--aliceBlueColor);
+  border-radius: var(--border-ref);
+  background: var(--gradientColor-CTA);
 }
 
 .formGroup {
@@ -31,7 +39,7 @@ placeholder {
 
 .checkLabel {
   text-align: center;
-  width: var(--width-label-text);
+  width: 30ch;
 }
 .createForm {
   display: flex;
@@ -47,6 +55,11 @@ placeholder {
 
 .createForm label {
   letter-spacing: var(--spacing-letter-ref);
+  font-family: var(--textFont);
+}
+
+.password-label {
+  margin: auto;
 }
 
 .checkBox {
@@ -56,10 +69,24 @@ placeholder {
   padding: var(--spacing-ref);
 }
 
+.error {
+  font-size: calc(var(--font-size-ref) * 0.8);
+  width: 80%;
+  color: var(--errorColor);
+  text-align: center;
+  font-family: var(--textFont);
+}
+
 .errors {
   list-style: none;
   color: var(--errorColor);
+  font-family: var(--textFont);
   font-size: calc(var(--font-size-ref) * 0.8);
+  justify-items: center;
+}
+
+.css-97ewkx {
+  align-self: center;
 }
 
 .error::before {
@@ -68,6 +95,17 @@ placeholder {
 
 .react-datepicker__view-calendar-icon input {
   padding: var(--padding-input) !important;
+}
+
+.birthdayCalendar {
+  text-align: center;
+  font-family: var(--textFont);
+}
+
+.react-datepicker__month-select {
+  text-align: center;
+}
+.react-datepicker__current-month {
   text-align: center;
 }
 

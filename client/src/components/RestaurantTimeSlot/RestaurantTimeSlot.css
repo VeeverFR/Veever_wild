@@ -1,0 +1,126 @@
+.page-header {
+  display: flex;
+  flex-direction: start;
+  align-items: center;
+  padding: .5rem;
+  background-color: var(--aliceBlueColor);
+}
+
+.page-header h1 {
+  flex-grow: 1;
+  text-align: center;
+  font-size: var(--font-size-ref);
+  font-weight: var(--font-weight-S);
+  color: var(--secondColor);
+}
+
+.page-header button {
+  margin-right: var(--spacing-ref);
+}
+
+.restaurant-scheduler {
+  max-height: max-content;
+  margin: calc(var(--spacing-ref) * 1) calc(var(--spacing-ref) * 1);
+  padding: var(--spacing-ref);
+  background-color: var(--light);
+  border-radius: var(--border-ref);
+  background-color: var(--bckgColorOrangeOpacity);
+  box-shadow: var(--box-shadow-soft);
+}
+
+.scheduler-header h2 {
+  font-size: calc(var(--font-size-ref) * 1.5);
+  display: flex;
+  margin-bottom: calc(var(--spacing-ref) * 2);
+  padding: calc(var(--spacing-ref) * 2);
+  border-radius: var(--border-ref);
+  background-color: var(--aliceBlueColor);
+}
+
+.header-title h2 {
+  font-size: calc(var(--font-size-ref) * 1.5);
+  font-weight: var(--font-weight-S);
+  color: var(--secondColor);
+  text-align: center;
+  flex-grow: 1;
+}
+
+.scheduler-content {
+  position: relative;
+}
+
+.scheduler-content h3 {
+  margin: var(--spacing-ref);
+  font-size: calc(var(--font-size-ref) * 1.2);
+  font-weight: 500;
+  color: var(--secondColor);
+}
+
+.meal-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-ref);
+}
+
+.meal-option {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: calc(var(--spacing-ref) * 1);
+  border: var(--border-input);
+  border-radius: var(--border-ref);
+  background-color: var(--light);
+  text-align: left;
+  font-size: var(--font-size-ref);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.meal-option.selected {
+  background-color: var(--mainColor);
+  color: var(--light);
+  border-color: var(--secondColor);
+}
+
+.meal-icon {
+  margin-right: var(--spacing-ref);
+  font-size: calc(var(--font-size-ref) * 1.5);
+}
+
+.double-icon {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-ref);
+  margin-right: var(--spacing-ref);
+}
+
+.date-option {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: calc(var(--spacing-ref) * 1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: var(--light);
+}
+
+.date-option.selected {
+  background-color: var(--mainColor);
+  color: var(--light);
+}
+
+.date-option.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--bckgColor);
+}
+
+.question-text {
+  text-align: center;
+  color: var(--color-label);
+}
+
+.page-header button {
+  margin-right: calc(var(--spacing-ref) * 0.5);
+  padding-right: calc(var(--spacing-ref) * 0.5);
+}

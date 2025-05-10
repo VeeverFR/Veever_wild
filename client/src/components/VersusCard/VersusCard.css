@@ -1,0 +1,125 @@
+@import url("@src/variables.css");
+
+.versus-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.versus-container button:last-of-type {
+  padding: var(--i);
+}
+
+.versus-title {
+  padding: var(--spacing-ref);
+  margin: var(--spacing-ref);
+  text-align: center;
+  box-shadow: 1px 1px 5px 2px #61535373;
+  border-radius: calc(var(--border-ref) * 2);
+  width: 90%;
+  font-size: calc(var(--font-size-ref) * 1.5);
+}
+.versus-card {
+  font-family: var(--textFont);
+  width: 90vw;
+  font-size: medium;
+  background-color: var(--light);
+  border: solid 1px var(--bckgColor);
+  border-radius: 15px;
+  box-shadow: -2px -1px 8px 3px var(--shadow);
+  padding: var(--spacing-ref);
+}
+
+.versus-container p {
+  text-align: center;
+}
+
+.tag-img-container {
+  display: grid;
+}
+
+.tag-versus-container,
+.versus-img {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.tag-versus-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  height: 25vh;
+  gap: calc(var(--spacing-ref) * 0.5);
+}
+
+.tag-img-container h2 {
+  font-family: var(--titleFont);
+  border-top-right-radius: var(--border-ref);
+  border-bottom-right-radius: var(--border-ref);
+  grid-column: span 2;
+  background-color: var(--bckgColor-opacity);
+  padding: var(--spacing-ref);
+  margin-top: var(--spacing-ref);
+  font-size: clamp(1.3rem, 5vw, 2.5rem);
+}
+
+.tag-versus-container p {
+  border-radius: var(--border-ref);
+  margin-left: 10px;
+  background-color: var(--bckgColor-opacity);
+  width: 30vw;
+  font-size: clamp(0.8rem, 2vw, 1.8rem);
+}
+
+.tag-versus-container svg {
+  grid-row-start: 1;
+  grid-column-start: 3;
+  justify-self: end;
+  align-self: flex-start;
+}
+
+.tag-versus-container p:nth-of-type(1) {
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+.tag-versus-container p:nth-of-type(2) {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+.tag-versus-container p:nth-of-type(3) {
+  grid-column: span 2;
+  grid-row-start: 3;
+  justify-self: end;
+  margin-right: 10px;
+}
+
+.versus-card.selected {
+  border: 2px solid #ff6347;
+}
+
+.versus-card img {
+  width: 100%;
+  border-radius: calc(var(--border-ref) * 2);
+}
+
+#calque_1 {
+  width: 20%;
+}
+
+.vs:last-of-type {
+  display: none;
+}
+
+.vs {
+  align-content: center;
+  width: 30%;
+  height: 5vh;
+  font-size: calc(var(--font-size-ref) * 1.5);
+  letter-spacing: var(--spacing-letter-ref);
+  margin: calc(var(--spacing-ref) * 1);
+  background-color: var(--variantMainColor);
+  border-radius: calc(var(--border-ref) * 2);
+  color: var(--bckgColor);
+  font-weight: 800;
+}

@@ -9,7 +9,12 @@
   max-width: calc(var(--spacing-ref) * 25);
   padding: calc(var(--spacing-ref) * 2);
 }
-
+.date-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--spacing-ref);
+}
 .catalog-title {
   font-family: var(--titleFont);
   text-align: center;
@@ -18,7 +23,10 @@
   font-size: calc(var(--font-size-ref) * 2.5);
   margin-bottom: var(--border-ref);
 }
-
+.catalog-icon {
+  width: calc(var(--spacing-ref) * 3);
+  height: calc(var(--spacing-ref) * 3);
+}
 .catalog-boxes {
   cursor: pointer;
   border: solid var(--dark) calc(var(--border-ref) * 0.2);
@@ -39,4 +47,28 @@ input[type="checkbox"] {
   margin-right: var(--border-ref);
   cursor: pointer;
   transform: scale(1.5);
+}
+
+.catalog-emoji-checkbox {
+  background: none;
+  border: none;
+  font-size: calc(var(--font-size-ref) * 1.5);
+  cursor: pointer;
+  padding: calc(var(--spacing-ref) * 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--spacing-ref) * 0.5);
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.catalog-emoji-checkbox.checked {
+  opacity: 1;
+  border: solid var(--secondColor) calc(var(--border-ref) * 0.1);
+  border-radius: var(--border-ref);
+}
+
+.catalog-emoji-checkbox .label {
+  font-size: var(--font-size-ref);
 }
